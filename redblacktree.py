@@ -10,3 +10,8 @@ Authors: Bruno Santos <example@example.com>
 def sucessor(n):
     """REturna sucessor"""
     return n+1
+class ClassName(object):
+    """docstring for ."""
+    def __init__(self, arg):
+        super(, self).__init__()
+        self.arg = arg
