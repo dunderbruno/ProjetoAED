@@ -1,1 +1,8 @@
-"""Red-Black Tree Module."""
+"""
+
+Red-Black Tree Module.
+
+Authors: Bruno Santos
+         Jonathas Silva
+
+"""
