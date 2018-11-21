@@ -1,54 +1,44 @@
 """Tree."""
 
 
-def inorderTreeWalk(x):
-    """Plots the tree in order."""
-    if x != None:
-        inorderTreeWalk(left(x))
-        print(key(x))
-        inorderTreeWalk(righy(x))
+class Node:
+    """Classe Nodo."""
+
+    def __init__(self, data):
+        """Construtor do Nodo da Arvore."""
+        self.data = data
+        self.leftNode = None
+        self.rightNode = None
+
+    def getData(self):
+        """Retorna o Dado armazenado no nodo."""
+        return self.data
+
+    def setData(self, data):
+        """Atribui valor ao Dado do nodo."""
+        self.data = data
+
+    def getLeftNode(self):
+        """Retorna a referencia do no a esquerda nodo."""
+        return self.leftNode
+
+    def setLeftNode(self, data):
+        """Atribui valor do no a esquerda."""
+        self.leftNode = data
+
+    def getRightNode(self):
+        """Retorna o no da direita."""
+        return self.rightNode
+
+    def setRightNode(self, data):
+        """Atribui o valor do no da direita."""
+        self.rightNode = data
 
 
-def treeSearch(x, k):
-    """Recursive search in the tree."""
-    if x == None or key(x) == k:
-        return key(x)
-    if k < key(x):
-        return treeSearch(left(x), k)
-    else:
-        return treeSearch(right(x), k)
+class Tree:
+    """Tree class."""
 
-
-def iterativeTreeSearch(x, k):
-    """Iterative search in the tree."""
-    while x != None and k != key(x):
-        if x < key(x):
-            x = left(x)
-        else:
-            x = right(x)
-    return x
-
-
-def treeMinimum(x):
-    """Returns the tree minimum."""
-    while left(x) != None:
-        x = left(x)
-    return x
-
-
-def treeMaximum(x):
-    """Returns the tree maximum."""
-    while right(x) != None:
-        x = right(x)
-    return x
-
-
-def treeSuccessor(x):
-    """Return the successor of x."""
-    if right(x) != None:
-        return treeMinimum(right(x))
-    y = p(x)
-    while y != None and x == right(y):
-        x = y
-        y = p(y)
-    return y
+    def __init__(self, data):
+        """Construtor."""
+        self.p = None
+        self.data = data
