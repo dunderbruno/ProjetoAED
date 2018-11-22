@@ -8,7 +8,7 @@ Authors: Bruno Santos <example@example.com>
 """
 
 def sucessor(n):
-    """REturna sucessor"""
+    """Return sucessor"""
     return n+1
 
 def nada():
