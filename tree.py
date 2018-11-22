@@ -7,8 +7,19 @@ class Node:
     def __init__(self, data):
         """Construtor do Nodo da Arvore."""
         self.data = data
+        self.father = None
         self.leftNode = None
         self.rightNode = None
+
+    def __repr__(self):
+        """Plota o dado do no."""
+        s = ''
+        s += str(self.father) + '\n'
+        s += '^' + '\n'
+        s += str(self.leftNode) + ' <- '
+        s += str(self.data) + ' -> '
+        s += str(self.rightNode)
+        return s
 
     def getData(self):
         """Retorna o Dado armazenado no nodo."""
