@@ -49,7 +49,7 @@ class Node:
 class Tree:
     """Tree class."""
 
-    def __init__(self, data):
+    def __init__(self, node):
         """Construtor."""
         self.p = None
-        self.data = data
+        self.node = node
