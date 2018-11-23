@@ -62,9 +62,33 @@ class Node:
         """Define no pai."""
         self.parent = parent
 
+
 class Tree:
     """Tree class."""
 
     def __init__(self):
         """Construtor."""
-        self.p = None
+        self.root = None
+
+    def getRoot(self):
+        """Retorna a raiz."""
+        return self.root
+
+    def setRoot(self, root):
+        """Atribui o no na raiz."""
+        self.root = root
+
+    def minimum(self, node):
+        """Retorna o minino daquele no."""
+        if node is not None:
+            while node.getLeft() is not None:
+                node = node.getLeft()
+            return node.getData()
+
+    def maximum(self, node):
+        """Retorna o maximo daquel no."""
+        if node is not None:
+            while node.getRight() is not None:
+                node = node.getRight()
+            return node.getData()
+
