@@ -80,8 +80,36 @@ class Tree():
 
     def __init__(self):
         """Tree"""
-        self.root = nil
+        self.__root = None
 
     def setRoot(self, root):
         u"""Define raiz da árvore."""
-        self.root = root
+        self.__root = root
+
+    def getRoot(self):
+        return self.__root
+
+    def fixUp(self, z):
+        pass
+
+    def insert(self, z):
+        z = Node(z)
+        y = nil
+        x = self.getRoot()
+        while x is not self.nil:
+            y = x
+            if z.getData() < x.getData():
+                x = x.getLeft()
+            else:
+                x = x.getRight()
+        z.setParent(y)
+        if y == nil:
+            self.getRoot() = z
+        elif z.getData() < y.getData():
+            y.setRight(z)
+        else:
+            y.setRight(z)
+        z.setLeft(nil)
+        z.setRight(nil)
+        z.setColor("red")
+        fixUp(z)
