@@ -66,3 +66,22 @@ class Node():
     def setParent(self, parent):
         u"""Define nó pai."""
         self.__parent = parent
+
+
+class Tree():
+    u"""Árvore Vermelho e Preto."""
+
+    nil = Node(None)
+    nil.setColor("black")
+    nil.setParent(nil)
+    nil.setLeft(nil)
+    nil.setRight(nil)
+    nil.setData(None)
+
+    def __init__(self):
+        """Tree"""
+        self.root = nil
+
+    def setRoot(self, root):
+        u"""Define raiz da árvore."""
+        self.root = root
