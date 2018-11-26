@@ -5,11 +5,13 @@ Autores: Bruno Santos
          Jonathas Silva
 """
 
+
 class Node():
     u"""Unidade básica para funcionamento da Árvore Binária."""
 
     def __init__(self, data):
         u"""Classe Node é iniciada com argumentos color e data.
+
         Argumentos:
             data - informação armazenada pelo objeto Node.
         Atributos:
@@ -24,7 +26,6 @@ class Node():
         self.__data   = data
         self.__left   = None
         self.__right  = None
-
 
     def getColor(self):
         """Retorna chave de acesso."""
