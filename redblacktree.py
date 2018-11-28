@@ -94,7 +94,7 @@ class Tree():
 
     def insert(self, z):
         z = Node(z)
-        y = nil
+        y = self.nil
         x = self.getRoot()
         while x is not self.nil:
             y = x
@@ -103,13 +103,13 @@ class Tree():
             else:
                 x = x.getRight()
         z.setParent(y)
-        if y == nil:
-            self.getRoot() = z
+        if y == self.nil:
+            self.setRoot(z)
         elif z.getData() < y.getData():
             y.setRight(z)
         else:
             y.setRight(z)
-        z.setLeft(nil)
-        z.setRight(nil)
+        z.setLeft(self.nil)
+        z.setRight(self.nil)
         z.setColor("red")
-        fixUp(z)
+        # fixUp(z)
