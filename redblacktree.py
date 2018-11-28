@@ -79,20 +79,22 @@ class Tree():
     nil.setData(None)
 
     def __init__(self):
-        """Tree"""
-        self.__root = None
+        """Construtor da arvore."""
+        self.__root = self.nil
 
     def setRoot(self, root):
         u"""Define raiz da árvore."""
         self.__root = root
 
     def getRoot(self):
+        """Retorna a raiz da arvore."""
         return self.__root
 
     def fixUp(self, z):
         pass
 
     def insert(self, z):
+        """Insere um novo no."""
         z = Node(z)
         y = self.nil
         x = self.getRoot()
