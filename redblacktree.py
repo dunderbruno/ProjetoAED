@@ -90,6 +90,124 @@ class Tree():
         """Retorna a raiz da arvore."""
         return self.__root
 
+    def bigger(self, h1, h2):
+        """Retorna o maximo da altura da arvore."""
+        if h1 > h2:
+            return h1+1
+        else:
+            return h2+1
+
+    def height(self, x):
+        """Altura da arvore."""
+        if x is None:
+            return -1
+        h1 = self.height(x.getLeft())
+        h2 = self.height(x.getRight())
+        return self.bigger(h1, h2)
+
+    def calFatorBalance(self, x):
+        """Calcala o fator de balanceamento das subarvores."""
+        esq = x.getEsquerdo()
+        dir = x.getDireito()
+        return self.height(esq) - self.height(dir)
+
+    def minimum(self, node):
+        """Retorna o minino daquele no."""
+        if node is not None:
+            while node.getLeft() is not None:
+                node = node.getLeft()
+            return node.getData()
+
+    def maximum(self, node):
+        """Retorna o maximo daquel no."""
+        if node is not None:
+            while node.getRight() is not None:
+                node = node.getRight()
+            return node.getData()
+
+    def successor(self, x):
+        """Retorna o sucessor."""
+        if x is not None:
+            if x.getRight() is not None:
+                return self.minimum(x.getRight())
+            else:
+                father = x.getParent()
+                while father is not None and x is father.getRight():
+                    x = father
+                    father = x.getParent()
+                    return father
+
+    def antecessor(self, x):
+        """Retorna o antecessor."""
+        if x.getLeft() is not None:
+            return self.maximum(x.getLeft())
+        y = x.getParent()
+        while (y is not None) and (x == y.getLeft()):
+            x = y
+            y = y.getParent()
+            return y
+
+    def preOrderTreeWalk(self, x):
+        """Plota arvore em preOrdem."""
+        if x is not None:
+            print(x.getData(), end = " ")
+            self.preOrderTreeWalk(x.getLeft())
+            self.preOrderTreeWalk(x.getRight())
+
+    def inOrderTreeWalk(self, x):
+        """Plota arvore em ordem."""
+        if x is not None:
+            self.inOrderTreeWalk(x.getLeft())
+            print(x.getData(), end = " ")
+            self.inOrderTreeWalk(x.getRight())
+
+    def postOrderTreeWalk(self, x):
+        """Plota arvore em posOrdem."""
+        if x is not None:
+            self.postOrderTreeWalk(x.getLeft())
+            self.postOrderTreeWalk(x.getRight())
+            print(x.getData(), end = " ")
+
+    def search(self, k):
+        """Busca e retorna o no."""
+        x = self.getRoot()
+        while x is not None and k != x.getData():
+            if k < x.getData():
+                x = x.getLeft()
+            else:
+                x = x.getRight()
+        return x
+
+    def leftRotate(self, x):
+        """Rotaçao simples a esquerda."""
+        y = x.getRight()
+        x.setRight(y.getLeft())
+        y.getLeft().setParent(x)
+        y.setParent(x.getParent())
+        if x.getParent() is None:
+            self.setRoot(y)
+        elif x is x.getParent().getLeft():
+            x.getLeft().setParent(y)
+        else:
+            x.getRight().setParent(y)
+        y.setLeft(x)
+        x.setParent(y)
+
+    def rightRotate(self, x):
+        """Rotaçao simples a direita."""
+        y = x.getLeft()
+        x.setLeft(y.getRight())
+        y.getRight().setParent(x)
+        y.setParent(x.getParent())
+        if x.getParent() is None:
+            self.setRoot(y)
+        elif x is x.getParent().getRight():
+            x.getRight().setParent(y)
+        else:
+            x.getLeft().setParent(y)
+        y.setRight(x)
+        x.setParent(y)
+
     def fixUp(self, z):
         pass
 
