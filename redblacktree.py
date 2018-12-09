@@ -229,7 +229,36 @@ class Tree():
         z.setLeft(self.nil)
         z.setRight(self.nil)
         z.setColor("red")
-        # fixUp(z)
+        self.insertFixUp(z)
 
     def insertFixUp(self, z):
-        pass
+        while z.getParent().getColor() == 'red':
+            if z.getParent() == z.getParent().getParent().getEsquerdo()
+                y = z.getParent().getParent().getRight()
+                if y.getColor() == 'red':
+                    z.getParent().setColor('black')
+                    y.setColor('black')
+                    z.getParent().getParent().setColor('red')
+                    z = z.getParent().getParent()
+                else:
+                    if z == z.getParent().getRight():
+                        z = z.getParent()
+                        self.leftRotate(z)
+                    z.getParent().setColor('black')
+                    z.getParent().getParent().setColor('red')
+                    self.rightRotate(z.getParent().getParent())
+            else:
+                y = z.getParent().getParent().getLeft()
+                if y.getColor() == 'red':
+                    z.getParent().setColor('black')
+                    y.setColor('black')
+                    z.getParent().getParent().setColor('red')
+                    z = z.getParent().getParent()
+                else:
+                    if z == z.getParent().getLeft():
+                        z = z.getParent()
+                        self.rightRotate(z)
+                    z.getParent().setColor('black')
+                    z.getParent().getParent().setColor('red')
+                    self.leftRotate(z.getParent().getParent())
+        self.getRoot().setColor('black')
