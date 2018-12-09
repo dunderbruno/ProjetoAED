@@ -270,3 +270,29 @@ class Tree():
             u.getParent().setLeft(v)
         else:
             u.getParent().setRight(v)
+
+    def delete(self, z):
+        y = z
+        y_original_color = y.getColor()
+        if z.getLeft() is self.nil:
+            x = z.getRight()
+            self.transplant(z, z.getRight())
+        elif z.getRight() is self.nil:
+            x = z.getLeft()
+            self.transplant(z, z.getLeft())
+        else:
+            y = self.minimum(z.getRight())
+            y_original_color = y.getColor()
+            x = y.getRight()
+            if y.getParent() is z:
+                x.setParent(y)
+            else:
+                self.transplant(y, y.getRight())
+                y.getRight() = z.getRight()
+                y.getRight().getParent() = y
+            self.transplant(z, y)
+            y.getLeft() = z.getLeft()
+            y.getLeft().getParent() = y
+            y.setColor(z.getColor())
+        if y_original_color is 'black':;
+            self.deleteFixUp(x)
