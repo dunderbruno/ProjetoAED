@@ -262,3 +262,11 @@ class Tree():
                     z.getParent().getParent().setColor('red')
                     self.leftRotate(z.getParent().getParent())
         self.getRoot().setColor('black')
+
+    def transplant(self, u, v):
+        if u.getParent() is self.nil:
+            self.setRoot(v)
+        elif u is u.getParent().getLeft():
+            u.getParent().setLeft(v)
+        else:
+            u.getParent().setRight(v)
