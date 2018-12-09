@@ -208,9 +208,6 @@ class Tree():
         y.setRight(x)
         x.setParent(y)
 
-    def fixUp(self, z):
-        pass
-
     def insert(self, z):
         """Insere um novo no."""
         z = Node(z)
@@ -233,3 +230,6 @@ class Tree():
         z.setRight(self.nil)
         z.setColor("red")
         # fixUp(z)
+
+    def insertFixUp(self, z):
+        pass
