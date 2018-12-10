@@ -170,14 +170,15 @@ class Tree():
         """Rotaçao simples a direita."""
         y = x.getLeft()
         x.setLeft(y.getRight())
-        y.getRight().setParent(x)
+        if x.getRight() is not self.nil:
+            y.getRight().setParent(x)
         y.setParent(x.getParent())
         if x.getParent() is self.nil:
             self.setRoot(y)
         elif x is x.getParent().getRight():
-            x.getRight().setParent(y)
+            x.getParent().setRight(y)
         else:
-            x.getLeft().setParent(y)
+            x.getParent().setLeft(y)
         y.setRight(x)
         x.setParent(y)
 
