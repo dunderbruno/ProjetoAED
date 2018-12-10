@@ -296,3 +296,49 @@ class Tree():
             y.setColor(z.getColor())
         if y_original_color is 'black':;
             self.deleteFixUp(x)
+
+    def deleteFixUp(self, x):
+        while x is not self.getRoot() and x.getColor() == 'black':
+            if x is x.getParent().getLeft():
+                w = x.getParent().getRight()
+                if w.getColor() == 'red':
+                    w.setColor('black')
+                    x.getParent().setColor('red')
+                    self.leftRotate(x.getParent())
+                    w = x.getParent().getRight()
+                if w.getLeft().getColor() == 'black' and w.getRight().getColor() == 'black':
+                    w.setColor('red')
+                    x = x.getParent()
+                else:
+                    if w.getRight.getColor() == 'black':
+                        w.getLeft.setColor('black')
+                        w.setColor('red')
+                        self.rightRotate(w)
+                        w = x.getParent().getRight()
+                    w.setColor(x.getParent().getColor())
+                    x.getParent().setColor('black')
+                    w.getRight().setColor('black')
+                    self.leftRotate(x.getParent())
+                    x = self.getRoot()
+            else:
+                w = x.getParent().getLeft()
+                if w.getColor() == 'red':
+                    w.setColor('black')
+                    x.getParent().setColor('red')
+                    self.rightRotate(x.getParent())
+                    w = x.getParent().getRight()
+                if w.getRight().getColor() == 'black' and w.getLeft().getColor() == 'black':
+                    w.setColor('red')
+                    x = x.getParent()
+                else:
+                    if w.getLeft().getColor() == 'black':
+                        w.getRight().setColor('black')
+                        w.setColor('red')
+                        self.leftRotate(w)
+                        w = x.getParent().getLeft()
+                    w.setColor(x.getParent().getColor())
+                    x.getParent().setColor('black')
+                    w.getLeft().setColor('black')
+                    self.rightRotate(x.getParent())
+                    x = self.getRoot()
+        x.setColor('black')
