@@ -48,7 +48,11 @@ class Node():
         return self.__parent
 
     def setColor(self, color):
-        """Define chave de acesso."""
+        """
+        Define chave de acesso.
+        ex:
+        x.setColor('red')
+        """
         self.__color = color
 
     def setData(self, data):
@@ -71,15 +75,14 @@ class Node():
 class Tree():
     u"""Árvore Vermelho e Preto."""
 
-    nil = Node(None)
-    nil.setColor("black")
-    nil.setParent(nil)
-    nil.setLeft(nil)
-    nil.setRight(nil)
-    nil.setData(None)
 
     def __init__(self):
         """Construtor da arvore."""
+        self.nil = Node(None)
+        self.nil.setColor('black')
+        self.nil.setParent(self.nil)
+        self.nil.setLeft(self.nil)
+        self.nil.setRight(self.nil)
         self.__root = self.nil
 
     def setRoot(self, root):
@@ -92,47 +95,47 @@ class Tree():
 
     def minimum(self, node):
         """Retorna o minino daquele no."""
-        if node is not None:
-            while node.getLeft() is not None:
+        if node is not self.nil:
+            while node.getLeft() is not self.nil:
                 node = node.getLeft()
             return node.getData()
 
     def maximum(self, node):
         """Retorna o maximo daquel no."""
-        if node is not None:
-            while node.getRight() is not None:
+        if node is not self.nil:
+            while node.getRight() is not self.nil:
                 node = node.getRight()
             return node.getData()
 
     def successor(self, x):
         """Retorna o sucessor."""
-        if x is not None:
-            if x.getRight() is not None:
+        if x is not self.nil:
+            if x.getRight() is not self.nil:
                 return self.minimum(x.getRight())
             else:
                 father = x.getParent()
-                while father is not None and x is father.getRight():
+                while (father is not self.nil) and (x is father.getRight()):
                     x = father
                     father = x.getParent()
                     return father
 
     def preOrderTreeWalk(self, x):
         """Plota arvore em preOrdem."""
-        if x is not None:
+        if x is not self.nil:
             print(x.getData(), end = " ")
             self.preOrderTreeWalk(x.getLeft())
             self.preOrderTreeWalk(x.getRight())
 
     def inOrderTreeWalk(self, x):
         """Plota arvore em ordem."""
-        if x is not None:
+        if x is not self.nil:
             self.inOrderTreeWalk(x.getLeft())
             print(x.getData(), end = " ")
             self.inOrderTreeWalk(x.getRight())
 
     def postOrderTreeWalk(self, x):
         """Plota arvore em posOrdem."""
-        if x is not None:
+        if x is not self.nil:
             self.postOrderTreeWalk(x.getLeft())
             self.postOrderTreeWalk(x.getRight())
             print(x.getData(), end = " ")
@@ -140,7 +143,7 @@ class Tree():
     def search(self, k):
         """Busca e retorna o no."""
         x = self.getRoot()
-        while x is not None and k != x.getData():
+        while (x is not self.nil) and (k != x.getData()):
             if k < x.getData():
                 x = x.getLeft()
             else:
@@ -153,7 +156,7 @@ class Tree():
         x.setRight(y.getLeft())
         y.getLeft().setParent(x)
         y.setParent(x.getParent())
-        if x.getParent() is None:
+        if x.getParent() is self.nil:
             self.setRoot(y)
         elif x is x.getParent().getLeft():
             x.getLeft().setParent(y)
@@ -168,7 +171,7 @@ class Tree():
         x.setLeft(y.getRight())
         y.getRight().setParent(x)
         y.setParent(x.getParent())
-        if x.getParent() is None:
+        if x.getParent() is self.nil:
             self.setRoot(y)
         elif x is x.getParent().getRight():
             x.getRight().setParent(y)
@@ -184,15 +187,15 @@ class Tree():
         x = self.getRoot()
         while x is not self.nil:
             y = x
-            if z.getData() < x.getData():
+            if (z.getData() < x.getData()):
                 x = x.getLeft()
             else:
                 x = x.getRight()
         z.setParent(y)
-        if y == self.nil:
+        if y is self.nil:
             self.setRoot(z)
         elif z.getData() < y.getData():
-            y.setRight(z)
+            y.setLeft(z)
         else:
             y.setRight(z)
         z.setLeft(self.nil)
@@ -202,7 +205,7 @@ class Tree():
 
     def insertFixUp(self, z):
         while z.getParent().getColor() == 'red':
-            if z.getParent() == z.getParent().getParent().getEsquerdo():
+            if z.getParent() is z.getParent().getParent().getLeft():
                 y = z.getParent().getParent().getRight()
                 if y.getColor() == 'red':
                     z.getParent().setColor('black')
@@ -279,8 +282,8 @@ class Tree():
                     w.setColor('red')
                     x = x.getParent()
                 else:
-                    if w.getRight.getColor() == 'black':
-                        w.getLeft.setColor('black')
+                    if w.getRight().getColor() == 'black':
+                        w.getLeft().setColor('black')
                         w.setColor('red')
                         self.rightRotate(w)
                         w = x.getParent().getRight()
