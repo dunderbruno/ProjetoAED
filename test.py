@@ -1,7 +1,7 @@
 from redblacktree import *
 
 T = Tree()
-for i in range(1, 50):
+for i in range(1, 16):
     T.insert(i)
 
 print('Raiz: ', T.getRoot().getData())
@@ -10,7 +10,11 @@ print('Em ordem:')
 T.inOrderTreeWalk(T.getRoot())
 print('\n')
 
-# T.delete(T.getRoot())
-print('Pré ordem:')
-T.preOrderTreeWalk(T.getRoot())
+a = T.search(8)
+print(a.getData())
+print(type(a))
+T.delete(a)
+
+print('Em ordem:')
+T.inOrderTreeWalk(T.getRoot())
 print('\n')
