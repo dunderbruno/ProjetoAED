@@ -98,7 +98,7 @@ class Tree():
         if node is not self.nil:
             while node.getLeft() is not self.nil:
                 node = node.getLeft()
-            return node.getData()
+            return node
 
     def maximum(self, node):
         """Retorna o maximo daquel no."""
