@@ -143,7 +143,7 @@ class Tree():
     def search(self, k):
         """Busca e retorna o no."""
         x = self.getRoot()
-        while (x is not self.nil) and (k != x.getData()):
+        while (x is not self.nil) and (k is not x.getData()):
             if k < x.getData():
                 x = x.getLeft()
             else:
@@ -154,14 +154,15 @@ class Tree():
         """Rotaçao simples a esquerda."""
         y = x.getRight()
         x.setRight(y.getLeft())
-        y.getLeft().setParent(x)
+        if y.getLeft() is not self.nil:
+            y.getLeft().setParent(x)
         y.setParent(x.getParent())
         if x.getParent() is self.nil:
             self.setRoot(y)
         elif x is x.getParent().getLeft():
-            x.getLeft().setParent(y)
+            x.getParent().setLeft(y)
         else:
-            x.getRight().setParent(y)
+            x.getParent().setRight(y)
         y.setLeft(x)
         x.setParent(y)
 
@@ -182,9 +183,9 @@ class Tree():
 
     def insert(self, z):
         """Insere um novo no."""
-        z = Node(z)
-        y = self.nil
         x = self.getRoot()
+        y = self.nil
+        z = Node(z)
         while x is not self.nil:
             y = x
             if (z.getData() < x.getData()):
@@ -200,7 +201,7 @@ class Tree():
             y.setRight(z)
         z.setLeft(self.nil)
         z.setRight(self.nil)
-        z.setColor("red")
+        z.setColor('red')
         self.insertFixUp(z)
 
     def insertFixUp(self, z):
