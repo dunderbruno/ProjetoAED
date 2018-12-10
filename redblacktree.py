@@ -202,7 +202,7 @@ class Tree():
 
     def insertFixUp(self, z):
         while z.getParent().getColor() == 'red':
-            if z.getParent() == z.getParent().getParent().getEsquerdo()
+            if z.getParent() == z.getParent().getParent().getEsquerdo():
                 y = z.getParent().getParent().getRight()
                 if y.getColor() == 'red':
                     z.getParent().setColor('black')
@@ -257,13 +257,13 @@ class Tree():
                 x.setParent(y)
             else:
                 self.transplant(y, y.getRight())
-                y.getRight() = z.getRight()
-                y.getRight().getParent() = y
+                y.setRight(z.getRight())
+                y.getRight().setParent(y)
             self.transplant(z, y)
-            y.getLeft() = z.getLeft()
-            y.getLeft().getParent() = y
+            y.setLeft(z.getLeft())
+            y.getLeft().setParent(y)
             y.setColor(z.getColor())
-        if y_original_color is 'black':;
+        if y_original_color is 'black':
             self.deleteFixUp(x)
 
     def deleteFixUp(self, x):
