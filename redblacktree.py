@@ -105,7 +105,7 @@ class Tree():
         if node is not self.nil:
             while node.getRight() is not self.nil:
                 node = node.getRight()
-            return node.getData()
+            return node
 
     def successor(self, x):
         """Retorna o sucessor."""
