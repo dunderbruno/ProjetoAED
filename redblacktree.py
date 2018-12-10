@@ -90,27 +90,6 @@ class Tree():
         """Retorna a raiz da arvore."""
         return self.__root
 
-    def bigger(self, h1, h2):
-        """Retorna o maximo da altura da arvore."""
-        if h1 > h2:
-            return h1+1
-        else:
-            return h2+1
-
-    def height(self, x):
-        """Altura da arvore."""
-        if x is None:
-            return -1
-        h1 = self.height(x.getLeft())
-        h2 = self.height(x.getRight())
-        return self.bigger(h1, h2)
-
-    def calFatorBalance(self, x):
-        """Calcala o fator de balanceamento das subarvores."""
-        esq = x.getEsquerdo()
-        dir = x.getDireito()
-        return self.height(esq) - self.height(dir)
-
     def minimum(self, node):
         """Retorna o minino daquele no."""
         if node is not None:
@@ -136,16 +115,6 @@ class Tree():
                     x = father
                     father = x.getParent()
                     return father
-
-    def antecessor(self, x):
-        """Retorna o antecessor."""
-        if x.getLeft() is not None:
-            return self.maximum(x.getLeft())
-        y = x.getParent()
-        while (y is not None) and (x == y.getLeft()):
-            x = y
-            y = y.getParent()
-            return y
 
     def preOrderTreeWalk(self, x):
         """Plota arvore em preOrdem."""
