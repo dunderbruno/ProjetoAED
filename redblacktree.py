@@ -244,6 +244,7 @@ class Tree():
             u.getParent().setLeft(v)
         else:
             u.getParent().setRight(v)
+        v.setParent(u.getParent())
 
     def delete(self, z):
         y = z
@@ -268,7 +269,7 @@ class Tree():
             y.setLeft(z.getLeft())
             y.getLeft().setParent(y)
             y.setColor(z.getColor())
-        if y_original_color is 'black':
+        if y_original_color == 'black':
             self.deleteFixUp(x)
 
     def deleteFixUp(self, x):

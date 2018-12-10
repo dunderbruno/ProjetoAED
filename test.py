@@ -10,7 +10,7 @@ print('Em ordem:')
 T.inOrderTreeWalk(T.getRoot())
 print('\n')
 
-a = T.search(8)
+a = T.search(2)
 print(a.getData())
 print(type(a))
 T.delete(a)
