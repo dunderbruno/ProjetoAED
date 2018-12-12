@@ -9,9 +9,9 @@ class Titulo():
 
     def __repr__(self):
         s = ''
-        s += __inscricao + '-'
-        s += __zona + '-'
-        s += __secao
+        s += self.__inscricao + '-'
+        s += self.__zona + '-'
+        s += self.__secao
         return s
 
     def getInscricao(self):
