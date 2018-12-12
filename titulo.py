@@ -6,6 +6,7 @@ class Titulo():
         self.__inscricao = str(inscricao)
         self.__zona = str(zona)
         self.__secao = str(secao)
+        self.__numero = self.__inscricao + self.__zona + self.__secap
 
     def __repr__(self):
         s = ''
@@ -31,3 +32,6 @@ class Titulo():
 
     def setSecao(self, secao):
         self.__secao = secao
+
+    def getNumero(self):
+        return self.__numero
