@@ -8,12 +8,18 @@ titulos = redblacktree.Tree()
 # ÁRVORE DE VOTOS
 votos = redblacktree.Tree()
 
-numero = input('Cadastrar Título: ')
-atual = titulo.Titulo(numero[0:8], numero[8:11], numero[11:])
+# EXEMPLO
+titulos.insert(titulo.cadastrar())
+titulos.inOrderTreeWalk(titulos.getRoot())
+print('\n')
 
-print(atual)
-node = redblacktree.Node(atual)
-print(valida.valida(node))
+# a = titulos.search(numero)
+# print(a.getData())
+# print(type(a.getData()))
+
+# print(atual)
+# node = redblacktree.Node(atual)
+# print(valida.valida(node))
 '''
 O cadastramento de títulos de eleitor possuem as seguintes opções:
 • Cadastrar título;
