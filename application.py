@@ -12,6 +12,8 @@ numero = input('Cadastrar Título: ')
 atual = titulo.Titulo(numero[0:8], numero[8:11], numero[11:])
 
 print(atual)
+node = redblacktree.Node(atual)
+print(valida.valida(node))
 '''
 O cadastramento de títulos de eleitor possuem as seguintes opções:
 • Cadastrar título;
