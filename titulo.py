@@ -3,15 +3,15 @@ class Titulo():
 
     def __init__(self, inscricao, zona, secao):
         """Construtor."""
-        self.__inscricao = inscricao
-        self.__zona = zona
-        self.__secao = secao
+        self.__inscricao = str(inscricao)
+        self.__zona = str(zona)
+        self.__secao = str(secao)
 
     def __repr__(self):
         s = ''
-        s += str(self.getInscricao()) + '-'
-        s += str(self.getZona()) + '-'
-        s += str(self.getSecao())
+        s += __inscricao + '-'
+        s += __zona + '-'
+        s += __secao
         return s
 
     def getInscricao(self):
