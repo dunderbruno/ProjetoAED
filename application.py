@@ -1,3 +1,5 @@
+"""Main App."""
+
 import redblacktree
 import titulo
 import valida
@@ -38,20 +40,36 @@ while True:
         print('\n')
 
 
-# O cadastramento de títulos de eleitor possuem as seguintes opções:
-
-
 # cadastrar candidatos
 
+
 '''
-    # VOTAR:
-# Nova votação: dá um “reset” na árvore de votação que guarda os títulos que já votaram.
-# Esse “reset” corresponde à liberação da memória dinamicamente alocada;
-# Adicionar voto: ler número do título e o voto. Se o número do título é válido e se ainda
-# não votou, contabiliza o voto e atualiza a árvore de votação que armazena os títulos de
-# quem já votou;
-# Gerar votos aleatórios (para encher a árvore de votação mais rapidamente): sempre
-# acionando a operação de inserir mais um elemento na árvore de votação;
-# validação
+# lê um título e um voto
+    # valida
+    # contabiliza o voto
+    # deleta da árvore de títulos
+    # insere na árvore de votos
+
+# preencher de uma vez
+    # lê automaticamente de um por um
+    # valida
+    # preenche voto automaticamente (random.choice)
+
+# Sair: destruir todas as estruturas e encerrar o programa.
+'''
+
+'''
+VOTAR:
+Nova votação: dá um “reset” na árvore de votação que guarda os títulos que já
+votaram.
+    Esse “reset” corresponde à liberação da memória dinamicamente alocada;
+Adicionar voto: ler número do título e o voto. Se o número do título é válido
+e se ainda
+não votou, contabiliza o voto e atualiza a árvore de votação que armazena os
+títulos de
+quem já votou;
+Gerar votos aleatórios (para encher a árvore de votação mais rapidamente):
+sempreacionando a operação de inserir mais um elemento na árvore de votação;
+validação
 '''
 # Sair: destruir todas as estruturas e encerrar o programa.
