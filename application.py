@@ -28,7 +28,9 @@ while True:
     elif opcao == 3:
         os.system('clear')
         arquivo = os.getcwd() + '/' + input('Nome do arquivo: ')
-        # aqui faz a leitura e insere na árvore com um laço
+        # TODO:
+        # Carregar títulos (VÁRIOS DE UMA VEZ)
+        # lê o arquivo e insere na árvore com um laço
         print('\n')
     elif opcao == 4:
         os.system('clear')
@@ -38,19 +40,18 @@ while True:
 
 # O cadastramento de títulos de eleitor possuem as seguintes opções:
 
-# • Carregar títulos (VÁRIOS DE UMA VEZ)
 
 # cadastrar candidatos
 
-
-# VOTAR:
-    #Nova votação: dá um “reset” na árvore de votação que guarda os títulos que já votaram.
-    #Esse “reset” corresponde à liberação da memória dinamicamente alocada;
-    #• Adicionar voto: ler número do título e o voto. Se o número do título é válido e se ainda
-    #não votou, contabiliza o voto e atualiza a árvore de votação que armazena os títulos de
-    #quem já votou;
-    #• Gerar votos aleatórios (para encher a árvore de votação mais rapidamente): sempre
-    #acionando a operação de inserir mais um elemento na árvore de votação;
-    # validação
-
+'''
+    # VOTAR:
+# Nova votação: dá um “reset” na árvore de votação que guarda os títulos que já votaram.
+# Esse “reset” corresponde à liberação da memória dinamicamente alocada;
+# Adicionar voto: ler número do título e o voto. Se o número do título é válido e se ainda
+# não votou, contabiliza o voto e atualiza a árvore de votação que armazena os títulos de
+# quem já votou;
+# Gerar votos aleatórios (para encher a árvore de votação mais rapidamente): sempre
+# acionando a operação de inserir mais um elemento na árvore de votação;
+# validação
+'''
 # Sair: destruir todas as estruturas e encerrar o programa.
