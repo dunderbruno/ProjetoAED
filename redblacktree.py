@@ -141,10 +141,18 @@ class Tree():
             print(x.getData(), end = " ")
 
     def search(self, k):
-        """Busca e retorna o no."""
+        """Busca e retorna o no.
+
+        Na função original (k is not x.getData())
+        O is not foi substituído por != a fim de
+        suportar a comparação com k que é uma Strings
+
+        Obs: relacionado com métodos mágicos de comparação
+             da classe Título
+        """
         x = self.getRoot()
-        while (x is not self.nil) and (k is not x.getData().getNumero()):
-            if k < x.getData().getNumero():
+        while (x is not self.nil) and (k != x.getData()):
+            if k < x.getData():
                 x = x.getLeft()
             else:
                 x = x.getRight()

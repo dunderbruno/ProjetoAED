@@ -6,7 +6,7 @@ class Titulo():
         self.__inscricao = str(inscricao)
         self.__zona = str(zona)
         self.__secao = str(secao)
-        self.__numero = self.__inscricao + self.__zona + self.__secap
+        self.__numero = self.__inscricao + self.__zona + self.__secao
 
     def __repr__(self):
         s = ''
@@ -35,3 +35,12 @@ class Titulo():
 
     def getNumero(self):
         return self.__numero
+
+    def __lt__(self, other):
+        return self.__numero < other
+
+    def __eq__(self, other):
+        return self.__numero == other
+
+    def __gt__(self, other):
+        return self.__numero > other
