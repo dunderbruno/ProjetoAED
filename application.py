@@ -43,24 +43,35 @@ while True:
         os.system('clear')
         break
 
-print('cheguei aqui')
+# TODO:
 # cadastrar candidatos
 
+votos_registrados = 0
+while True:
+    opcao = int(input("Votos registrados: %d" % votos_registrados + '\n'
+                      "1 - votar" + '\n' +
+                      "2 - simulação" + '\n' +
+                      "3 - carregar de um arquivo" + '\n' +
+                      "Escolha: "))
 
-'''
-# lê um título e um voto
-    # valida
-    # contabiliza o voto
-    # deleta da árvore de títulos
-    # insere na árvore de votos
+    if opcao == 1:  # votar
+        os.system('clear')
+        # lê um título e um voto
+        # valida
+        # contabiliza o voto
+        # deleta da árvore de títulos
+        # insere na árvore de votos
+    elif opcao == 2:  # simulação
+        os.system('clear')
+        # preencher de uma vez
+        # lê automaticamente de um por um
+        # valida
+        # preenche voto automaticamente (random.choice)
+    elif opcao == 3:
+        os.system('clear')
+        # Sair: destruir todas as estruturas e encerrar o programa.
+        break
 
-# preencher de uma vez
-    # lê automaticamente de um por um
-    # valida
-    # preenche voto automaticamente (random.choice)
-
-# Sair: destruir todas as estruturas e encerrar o programa.
-'''
 
 '''
 VOTAR:
@@ -76,4 +87,3 @@ Gerar votos aleatórios (para encher a árvore de votação mais rapidamente):
 sempreacionando a operação de inserir mais um elemento na árvore de votação;
 validação
 '''
-# Sair: destruir todas as estruturas e encerrar o programa.
