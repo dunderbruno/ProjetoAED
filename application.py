@@ -3,11 +3,15 @@ import titulo
 import valida
 
 # ÁRVORE DE TÍTULOS
-#instanciar
+titulos = redblacktree.Tree()
 
 # ÁRVORE DE VOTOS
-#instanciar
+votos = redblacktree.Tree()
 
+numero = input('Cadastrar Título: ')
+atual = titulo.Titulo(numero[0:8], numero[8:11], numero[11:])
+
+print(atual)
 '''
 O cadastramento de títulos de eleitor possuem as seguintes opções:
 • Cadastrar título;
@@ -16,6 +20,7 @@ O cadastramento de títulos de eleitor possuem as seguintes opções:
 '''
 
 # cadastrar candidatos
+
 
 # VOTAR:
     #Nova votação: dá um “reset” na árvore de votação que guarda os títulos que já votaram.
