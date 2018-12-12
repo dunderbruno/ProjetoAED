@@ -1,3 +1,6 @@
+"""Classe Titulo."""
+
+
 class Titulo():
     """Classe Titulo."""
 
@@ -9,6 +12,7 @@ class Titulo():
         self.__numero = self.__inscricao + self.__zona + self.__secao
 
     def __repr__(self):
+        """Saida como string no formato XXXXXXXX-XXX-XXX."""
         s = ''
         s += self.__inscricao + '-'
         s += self.__zona + '-'
@@ -44,3 +48,8 @@ class Titulo():
 
     def __gt__(self, other):
         return self.__numero > other
+
+    def cadastrar(self):
+        """Recebe uma String e retorna um objeto Titulo."""
+        numero = input('Cadastrar Título: ')
+        return Titulo(numero[0:8], numero[8:11], numero[11:])
