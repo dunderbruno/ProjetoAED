@@ -7,6 +7,13 @@ class Titulo():
         self.__zona = zona
         self.__secao = secao
 
+    def __repr__(self):
+        s = ''
+        s += str(self.getInscricao()) + '-'
+        s += str(self.getZona()) + '-'
+        s += str(self.getSecao())
+        return s
+
     def getInscricao(self):
         return self.__inscricao
 
