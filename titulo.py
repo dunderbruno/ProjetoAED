@@ -49,7 +49,11 @@ class Titulo():
     def __gt__(self, other):
         return self.__numero > other
 
-    def cadastrar(self):
+    def cadastrar():
         """Recebe uma String e retorna um objeto Titulo."""
         numero = input('Cadastrar Título: ')
         return Titulo(numero[0:8], numero[8:11], numero[11:])
+
+    def descadastrar():
+        """Le uma string para repassar pra alicacao principal."""
+        return input('Descadastrar Título: ')

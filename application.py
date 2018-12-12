@@ -1,31 +1,44 @@
 import redblacktree
 import titulo
 import valida
+import os
 
 # ÁRVORE DE TÍTULOS
 titulos = redblacktree.Tree()
+quantidade_cadastrada = 0
 
 # ÁRVORE DE VOTOS
 votos = redblacktree.Tree()
+while True:
+    opcao = int(input("Títulos Cadastrados: %d" % quantidade_cadastrada + '\n'
+                      "1 - cadastra" + '\n' +
+                      "2 - descadastra" + '\n' +
+                      "3 - carregar de um arquivo" + '\n' +
+                      "4 - exibir títulos cadastrados" + '\n' + '\n'
+                      "Escolha: "))
 
-# EXEMPLO
-titulos.insert(titulo.cadastrar())
-titulos.inOrderTreeWalk(titulos.getRoot())
-print('\n')
+    if opcao == 1:
+        os.system('clear')
+        titulos.insert(titulo.Titulo.cadastrar())
+        quantidade_cadastrada += 1
+    elif opcao == 2:
+        os.system('clear')
+        titulos.delete(titulos.search(titulo.Titulo.descadastrar()))
+        quantidade_cadastrada -= 1
+    elif opcao == 3:
+        os.system('clear')
+        arquivo = os.getcwd() + '/' + input('Nome do arquivo: ')
+        # aqui faz a leitura e insere na árvore com um laço
+        print('\n')
+    elif opcao == 4:
+        os.system('clear')
+        titulos.inOrderTreeWalk(titulos.getRoot())
+        print('\n')
 
-# a = titulos.search(numero)
-# print(a.getData())
-# print(type(a.getData()))
 
-# print(atual)
-# node = redblacktree.Node(atual)
-# print(valida.valida(node))
-'''
-O cadastramento de títulos de eleitor possuem as seguintes opções:
-• Cadastrar título;
-• Descadastrar título ;
-• Carregar títulos (VÁRIOS DE UMA VEZ)
-'''
+# O cadastramento de títulos de eleitor possuem as seguintes opções:
+
+# • Carregar títulos (VÁRIOS DE UMA VEZ)
 
 # cadastrar candidatos
 

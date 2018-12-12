@@ -130,7 +130,7 @@ class Tree():
         """Plota arvore em ordem."""
         if x is not self.nil:
             self.inOrderTreeWalk(x.getLeft())
-            print(x.getData(), end = " ")
+            print(x.getData(), end = "\n")
             self.inOrderTreeWalk(x.getRight())
 
     def postOrderTreeWalk(self, x):
