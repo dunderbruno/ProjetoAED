@@ -17,6 +17,7 @@ while True:
                       "2 - descadastra" + '\n' +
                       "3 - carregar de um arquivo" + '\n' +
                       "4 - exibir títulos cadastrados" + '\n' + '\n'
+                      "5 - finaliza cadastro" + '\n' + '\n'
                       "Escolha: "))
 
     if opcao == 1:
@@ -38,8 +39,11 @@ while True:
         os.system('clear')
         titulos.inOrderTreeWalk(titulos.getRoot())
         print('\n')
+    elif opcao == 5:
+        os.system('clear')
+        break
 
-
+print('cheguei aqui')
 # cadastrar candidatos
 
 
