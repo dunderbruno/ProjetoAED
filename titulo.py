@@ -7,7 +7,7 @@ class Titulo():
         self.__zona = zona
         self.__secao = secao
 
-    def getInscricao():
+    def getInscricao(self):
         return self.__inscricao
 
     def setInscricao(self, inscricao):
