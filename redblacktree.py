@@ -143,8 +143,8 @@ class Tree():
     def search(self, k):
         """Busca e retorna o no."""
         x = self.getRoot()
-        while (x is not self.nil) and (k is not x.getData()):
-            if k < x.getData():
+        while (x is not self.nil) and (k is not x.getData().getNumero()):
+            if k < x.getData().getNumero():
                 x = x.getLeft()
             else:
                 x = x.getRight()
