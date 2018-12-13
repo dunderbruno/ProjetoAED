@@ -11,6 +11,8 @@ quantidade_cadastrada = 0
 
 # ÁRVORE DE VOTOS
 votos = redblacktree.Tree()
+votos_registrados = 0
+
 while True:
     opcao = int(input("Títulos Cadastrados: %d" % quantidade_cadastrada + '\n'
                       "1 - cadastra" + '\n' +
@@ -46,7 +48,6 @@ while True:
 # TODO:
 # cadastrar candidatos
 
-votos_registrados = 0
 while True:
     opcao = int(input("Votos registrados: %d" % votos_registrados + '\n'
                       "1 - votar" + '\n' +
@@ -56,11 +57,13 @@ while True:
 
     if opcao == 1:  # votar
         os.system('clear')
-        # lê um título e um voto
-        # valida
-        # contabiliza o voto
-        # deleta da árvore de títulos
-        # insere na árvore de votos
+        eleitor = input('Título de eleitor: ')
+        node = titulos.search(eleitor)
+        if valida(node):
+            voto = input('Voto: ')
+            # contabiliza o voto
+            titulos.delete(node)
+            votos.insert(eleitor)
     elif opcao == 2:  # simulação
         os.system('clear')
         # preencher de uma vez
