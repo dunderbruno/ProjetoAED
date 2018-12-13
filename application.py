@@ -57,13 +57,14 @@ while True:
 
     if opcao == 1:  # votar
         os.system('clear')
-        eleitor = input('Título de eleitor: ')
-        node = titulos.search(eleitor)
-        if valida(node):
+        eleitor = titulos.search(input('Título de eleitor: '))
+        if valida(eleitor):
+            # TODO: exibir lista de candidatos(laço for)
             voto = input('Voto: ')
-            # contabiliza o voto
-            titulos.delete(node)
-            votos.insert(eleitor)
+            # TODO:  contabiliza o voto
+            titulos.delete(eleitor)
+            votos.insert(str(eleitor))
+            votos_registrados += 1
     elif opcao == 2:  # simulação
         os.system('clear')
         # preencher de uma vez
