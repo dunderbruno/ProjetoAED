@@ -32,10 +32,11 @@ while True:
         quantidade_cadastrada -= 1
     elif opcao == 3:
         os.system('clear')
-        arquivo = os.getcwd() + '/' + input('Nome do arquivo: ')
-        # TODO:
-        # Carregar títulos (VÁRIOS DE UMA VEZ)
-        # lê o arquivo e insere na árvore com um laço
+        arquivo = input('Nome do arquivo: ')
+        with open(arquivo) as lista:
+            for i in lista.readlines():
+                titulos.insert(titulo.Titulo(i[0:8], i[8:11], i[11:]))
+                quantidade_cadastrada += 1
         print('\n')
     elif opcao == 4:
         os.system('clear')
