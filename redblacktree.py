@@ -93,6 +93,13 @@ class Tree():
         """Retorna a raiz da arvore."""
         return self.__root
 
+    def isEmpty(self):
+        """Retorna se a arvore esta vazia ou nao."""
+        if self.getRoot() is self.nil:
+            return True
+        else:
+            return False
+
     def minimum(self, node):
         """Retorna o minino daquele no."""
         if node is not self.nil:

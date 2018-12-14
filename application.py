@@ -28,8 +28,15 @@ while True:
         quantidade_cadastrada += 1
     elif opcao == 2:
         os.system('clear')
-        titulos.delete(titulos.search(titulo.Titulo.descadastrar()))
-        quantidade_cadastrada -= 1
+        if not titulos.isEmpty():
+            eliminar = titulos.search(titulo.Titulo.descadastrar())
+            if not eliminar is titulos.nil:
+                titulos.delete(eliminar)
+                quantidade_cadastrada -= 1
+            else:
+                print('Titulo nao encontrado!')
+        else:
+            print('esta vazia!')
     elif opcao == 3:
         os.system('clear')
         arquivo = input('Nome do arquivo: ')
