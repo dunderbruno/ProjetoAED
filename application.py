@@ -44,7 +44,7 @@ while True:
         arquivo = input('Nome do arquivo: ')
         with open(arquivo) as lista:
             for i in lista.readlines():
-                titulos.insert(titulo.Titulo(i[0:8], i[8:11], i[11:]))
+                titulos.insert(titulo.Titulo(i[0:8], i[8:11], i[11:-1]))
                 quantidade_cadastrada += 1
         print('\n')
     elif opcao == 4:
