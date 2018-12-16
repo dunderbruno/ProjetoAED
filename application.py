@@ -85,19 +85,3 @@ while True:
         os.system('clear')
         # Sair: destruir todas as estruturas e encerrar o programa.
         break
-
-
-'''
-VOTAR:
-Nova votação: dá um “reset” na árvore de votação que guarda os títulos que já
-votaram.
-    Esse “reset” corresponde à liberação da memória dinamicamente alocada;
-Adicionar voto: ler número do título e o voto. Se o número do título é válido
-e se ainda
-não votou, contabiliza o voto e atualiza a árvore de votação que armazena os
-títulos de
-quem já votou;
-Gerar votos aleatórios (para encher a árvore de votação mais rapidamente):
-sempreacionando a operação de inserir mais um elemento na árvore de votação;
-validação
-'''
