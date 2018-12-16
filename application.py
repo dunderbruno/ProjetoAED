@@ -53,8 +53,32 @@ while True:
         os.system('clear')
         break
 
-# TODO:
-# cadastrar candidatos
+candidatos = {}
+
+while True:
+    opcao = int(input("Votos registrados: %d" % votos_registrados + '\n'
+                      "1 - Cadastrar canditado" + '\n' +
+                      "2 - Deletar canditado" + '\n' +
+                      "3 - Listar candidatos" + '\n' +
+                      "4 - sair" + '\n' + '\n' +
+                      "Escolha: "))
+
+    if opcao == 1:  # cadastrar canditado
+        os.system('clear')
+        numero = int(input('Número: '))
+        nome = input('Nome: ')
+        candidatos[numero] = [nome, 0]
+    elif opcao == 2:
+        os.system('clear')
+        numero = int(input('Digite o número a ser apagado: '))
+        del candidatos[numero]
+    elif opcao == 3:
+        os.system('clear')
+        for i in candidatos:
+            print(i, '-', candidatos[i][0])
+    elif opcao == 4:
+        os.system('clear')
+        break
 
 while True:
     opcao = int(input("Votos registrados: %d" % votos_registrados + '\n'
