@@ -56,6 +56,8 @@ while True:
         break
 
 candidatos = {}
+numeros = []
+
 
 while True:
     opcao = int(input("Votos registrados: %d" % votos_registrados + '\n'
@@ -70,6 +72,7 @@ while True:
         numero = int(input('Número: '))
         nome = input('Nome: ')
         candidatos[numero] = [nome, 0]
+        numeros.append[numero]
     elif opcao == 2:
         os.system('clear')
         numero = int(input('Digite o número a ser apagado: '))
@@ -105,6 +108,7 @@ while True:
                 voto = input('Voto: ')
                 titulos.delete(eleitor)
                 votos.insert(str(eleitor))
+                candidatos[voto][1] += 1
                 votos_registrados += 1
         else:
             print('Título não encontrado')
