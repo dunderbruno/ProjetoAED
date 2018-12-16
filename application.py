@@ -30,7 +30,7 @@ while True:
         os.system('clear')
         if not titulos.isEmpty():
             eliminar = titulos.search(titulo.Titulo.descadastrar())
-            if not eliminar is titulos.nil:
+            if eliminar is not titulos.nil:
                 titulos.delete(eliminar)
                 quantidade_cadastrada -= 1
             else:
