@@ -12,14 +12,14 @@ class Titulo():
         self.__numero = self.__inscricao + self.__zona + self.__secao
 
     def __repr__(self):
-        u"""O objeto é exibido no formato XXXXXXXX-XXX-XXX."""
+        u"""O objeto é exibido no formato XXXXXXXXYYYZZZZ."""
         return self.__numero
 
     def __str__(self):
         """
         Quando convertido em string.
 
-        'XXXXXXXXYYYSSSS'
+        'XXXXXXXX-YYY-ZZZZ'
         """
         return self.__inscricao + '-' + self.__zona + '-' + self.__secao
 
