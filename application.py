@@ -98,11 +98,11 @@ while True:
         time.sleep(3)
     elif opcao == 2:  # votar
         os.system('clear')
-        eleitor = titulos.search(input('Título de eleitor: '))
+        entrada = input('Título de eleitor: ')
+        eleitor = titulos.search(entrada)
         if eleitor is not titulos.nil:
             if valida.valida(eleitor):
                 voto = input('Voto: ')
-                # TODO:  contabiliza o voto
                 titulos.delete(eleitor)
                 votos.insert(str(eleitor))
                 votos_registrados += 1
