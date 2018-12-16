@@ -15,11 +15,11 @@ votos_registrados = 0
 
 while True:
     opcao = int(input("Títulos Cadastrados: %d" % quantidade_cadastrada + '\n'
-                      "1 - cadastra" + '\n' +
-                      "2 - descadastra" + '\n' +
-                      "3 - carregar de um arquivo" + '\n' +
-                      "4 - exibir títulos cadastrados" + '\n' + '\n'
-                      "5 - finaliza cadastro" + '\n' + '\n'
+                      "1 - Cadastrar título" + '\n' +
+                      "2 - Descadastrar título" + '\n' +
+                      "3 - Carregar de um arquivo" + '\n' +
+                      "4 - Exibir títulos cadastrados" + '\n' + '\n'
+                      "5 - Finaliza cadastro" + '\n' + '\n'
                       "Escolha: "))
 
     if opcao == 1:
