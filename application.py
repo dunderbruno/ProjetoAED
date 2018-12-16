@@ -105,19 +105,22 @@ while True:
         eleitor = titulos.search(entrada)
         if eleitor is not titulos.nil:
             if valida.valida(eleitor):
+                # TODO: verificar se já votou, pode ser um AND no if acima
                 voto = input('Voto: ')
                 titulos.delete(eleitor)
-                votos.insert(str(eleitor))
+                votos.insert(eleitor.getNumero())
                 candidatos[voto][1] += 1
                 votos_registrados += 1
         else:
             print('Título não encontrado')
     elif opcao == 3:  # simulação
         os.system('clear')
-        # preencher de uma vez
-        # lê automaticamente de um por um
-        # valida
-        # preenche voto automaticamente (random.choice)
+        # TODO:  preencher de uma vez
+        # lê automaticamente de um por um (função inOrderTreeWalk
+        # com os seguintes ítens no lugar ro print):
+        # - valida
+        # - verifica se já votou
+        # - sorteia o voto (random.choice)
     elif opcao == 4:
         os.system('clear')
         for i in candidatos:
