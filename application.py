@@ -4,6 +4,8 @@ import redblacktree
 import titulo
 import valida
 import os
+import time
+import sys
 
 # ÁRVORE DE TÍTULOS
 titulos = redblacktree.Tree()
@@ -89,23 +91,35 @@ while True:
                       "5 - sair" + '\n' + '\n' +
                       "Escolha: "))
 
-    if opcao == 1:  # votar
+    if opcao == 1:
+        os.system('clear')
+        votos = redblacktree.Tree()
+        print('Árvore de Votação zerada')
+        time.sleep(3)
+    elif opcao == 2:  # votar
         os.system('clear')
         eleitor = titulos.search(input('Título de eleitor: '))
-        if valida(eleitor):
-            # TODO: exibir lista de candidatos(laço for)
-            voto = input('Voto: ')
-            # TODO:  contabiliza o voto
-            titulos.delete(eleitor)
-            votos.insert(str(eleitor))
-            votos_registrados += 1
-    elif opcao == 2:  # simulação
+        if eleitor is not titulos.nil:
+            if valida.valida(eleitor):
+                voto = input('Voto: ')
+                # TODO:  contabiliza o voto
+                titulos.delete(eleitor)
+                votos.insert(str(eleitor))
+                votos_registrados += 1
+        else:
+            print('Título não encontrado')
+    elif opcao == 3:  # simulação
         os.system('clear')
         # preencher de uma vez
         # lê automaticamente de um por um
         # valida
         # preenche voto automaticamente (random.choice)
-    elif opcao == 3:
+    elif opcao == 4:
         os.system('clear')
-        # Sair: destruir todas as estruturas e encerrar o programa.
-        break
+        for i in candidatos:
+            print(i, '-', candidatos[i][0], 'Votos: ', candidatos[i][1])
+    elif opcao == 5:
+        os.system('clear')
+        titulos = redblacktree.Tree()
+        votos = redblacktree.Tree()
+        sys.exit()
