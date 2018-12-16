@@ -13,7 +13,7 @@ class Titulo():
 
     def __repr__(self):
         u"""O objeto é exibido no formato XXXXXXXX-XXX-XXX."""
-        return self.__inscricao + '-' + self.__zona + '-' + self.__secao
+        return self.__numero
 
     def __str__(self):
         """
@@ -21,7 +21,7 @@ class Titulo():
 
         'XXXXXXXXYYYSSSS'
         """
-        return self.__numero
+        return self.__inscricao + '-' + self.__zona + '-' + self.__secao
 
     def getInscricao(self):
         return self.__inscricao
