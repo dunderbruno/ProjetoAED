@@ -93,6 +93,13 @@ class Tree():
         """Retorna a raiz da arvore."""
         return self.__root
 
+    def isEmpty(self):
+        """Retorna se a arvore esta vazia ou nao."""
+        if self.getRoot() is self.nil:
+            return True
+        else:
+            return False
+
     def minimum(self, node):
         """Retorna o minino daquele no."""
         if node is not self.nil:
@@ -130,7 +137,7 @@ class Tree():
         """Plota arvore em ordem."""
         if x is not self.nil:
             self.inOrderTreeWalk(x.getLeft())
-            print(x.getData(), end = " ")
+            print(x.getData(), end = "\n")
             self.inOrderTreeWalk(x.getRight())
 
     def postOrderTreeWalk(self, x):

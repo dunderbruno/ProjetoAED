@@ -1,3 +1,6 @@
+"""Classe Titulo."""
+
+
 class Titulo():
     """Classe Titulo."""
 
@@ -9,11 +12,16 @@ class Titulo():
         self.__numero = self.__inscricao + self.__zona + self.__secao
 
     def __repr__(self):
-        s = ''
-        s += self.__inscricao + '-'
-        s += self.__zona + '-'
-        s += self.__secao
-        return s
+        u"""O objeto é exibido no formato XXXXXXXX-XXX-XXX."""
+        return self.__inscricao + '-' + self.__zona + '-' + self.__secao
+
+    def __str__(self):
+        """
+        Quando convertido em string.
+
+        'XXXXXXXXYYYSSSS'
+        """
+        return self.__numero
 
     def getInscricao(self):
         return self.__inscricao
@@ -44,3 +52,12 @@ class Titulo():
 
     def __gt__(self, other):
         return self.__numero > other
+
+    def cadastrar():
+        """Recebe uma String e retorna um objeto Titulo."""
+        numero = input('Cadastrar Título: ')
+        return Titulo(numero[0:8], numero[8:11], numero[11:])
+
+    def descadastrar():
+        """Le uma string para repassar pra alicacao principal."""
+        return input('Descadastrar Título: ')
