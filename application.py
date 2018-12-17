@@ -49,7 +49,7 @@ while True:
                     titulos.insert(titulo.Titulo(i[0:8], i[8:11], i[11:-1]))
                     quantidade_cadastrada += 1
             print('\n')
-        except:
+        except Exception as exc:
             print('\nArquivo não encontrado!\n')
     elif opcao == 4:
         os.system('clear')
@@ -118,13 +118,14 @@ while True:
             print('Título não encontrado')
     elif opcao == 3:  # simulação
         os.system('clear')
-        # TODO:  preencher de uma vez
-        # lê automaticamente de um por um (função inOrderTreeWalk
-        # com os seguintes ítens no lugar ro print):
-        # - valida
-        # - verifica se já votou
-        #   voto = (random.choice(numeros))
-        #   candidatos[voto][1] += 1
+        while not titulos.isEmpty():
+            titulo = titulos.minimum(titulos.getRoot())
+            titulos.delete(titulo)
+            votos.insert(titulo.getData().getNumero())
+            voto = (random.choice(numeros))
+            candidatos[voto][1] += 1
+            votos_registrados += 1
+
     elif opcao == 4:
         os.system('clear')
         for i in candidatos:
