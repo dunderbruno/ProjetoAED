@@ -6,6 +6,7 @@ import valida
 import os
 import time
 import sys
+import random
 
 # ÁRVORE DE TÍTULOS
 titulos = redblacktree.Tree()
@@ -119,7 +120,8 @@ while True:
         # com os seguintes ítens no lugar ro print):
         # - valida
         # - verifica se já votou
-        # - sorteia o voto (random.choice)
+        #   voto = (random.choice(numeros))
+        #   candidatos[voto][1] += 1
     elif opcao == 4:
         os.system('clear')
         for i in candidatos:
