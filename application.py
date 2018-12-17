@@ -72,7 +72,7 @@ while True:
         numero = int(input('Número: '))
         nome = input('Nome: ')
         candidatos[numero] = [nome, 0]
-        numeros.append[numero]
+        numeros.append(numero)
     elif opcao == 2:
         os.system('clear')
         numero = int(input('Digite o número a ser apagado: '))
