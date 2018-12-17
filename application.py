@@ -107,7 +107,7 @@ while True:
             if valida.valida(eleitor) and (votos.search(entrada) is votos.nil): # TESTAR
                 voto = input('Voto: ')
                 titulos.delete(eleitor)
-                votos.insert(eleitor.getNumero())
+                votos.insert(eleitor.getData().getNumero())
                 candidatos[voto][1] += 1
                 votos_registrados += 1
         else:
