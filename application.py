@@ -109,7 +109,7 @@ while True:
         entrada = input('Título de eleitor: ')
         eleitor = titulos.search(entrada)
         if eleitor is not titulos.nil:
-            if valida.valida(eleitor):
+            if valida.valida(eleitor) and (votos.search(entrada) is votos.nil):
                 voto = int(input('Voto: '))
                 titulos.delete(eleitor)
                 votos.insert(eleitor.getData().getNumero())
@@ -123,7 +123,7 @@ while True:
         os.system('clear')
         while not titulos.isEmpty():
             titulo = titulos.minimum(titulos.getRoot())
-            if valida.valida(titulo):
+            if valida.valida(titulo) and (votos.search(titulo.getData()) is votos.nil):
                 titulos.delete(titulo)
                 votos.insert(titulo.getData().getNumero())
                 voto = (random.choice(numeros))
