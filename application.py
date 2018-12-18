@@ -134,7 +134,7 @@ while True:
     elif opcao == 4:
         os.system('clear')
         for i in candidatos:
-            print(i, '-', candidatos[i][0], 'Votos: ', candidatos[i][1])
+            print(i, '-', candidatos[i][0], ': ', candidatos[i][1])
     elif opcao == 5:
         os.system('clear')
         titulos = redblacktree.Tree()
