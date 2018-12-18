@@ -1,4 +1,15 @@
-"""Main App."""
+u"""Projeto 3: Eleições – Contagem e Checagem de Votos.
+
+Nas nossas eleições é sabido que são utilizadas urnas eletrônicas.
+É desejado a construção de um sistema que consiga contar os votos e checar
+quais os títulos que realizaram o processo de votação e os que não votaram.
+Algumas medidas a serem tomadas são: verificar no momento que um indivíduo
+vota se o título de eleitor dele é válido e, verificar também, se este eleitor
+ainda não votou.
+
+    Alunos: Bruno Olimpio dos Santos
+            Jonathas Felipe da Silva
+"""
 
 import redblacktree
 import titulo
@@ -16,6 +27,10 @@ quantidade_cadastrada = 0
 votos = redblacktree.Tree()
 votos_registrados = 0
 
+candidatos = {}  # armazena os candidatos no formato {numero: [nome, votos]}
+numeros = []     # guarda o número dos candidatos para usar em random.choice()
+
+# CADASTRAMENTO DE TÍTULOS DE ELEITOR
 os.system('clear')
 while True:
     opcao = int(input("Títulos Cadastrados: %d" % quantidade_cadastrada + '\n'
@@ -34,13 +49,15 @@ while True:
         os.system('clear')
         if not titulos.isEmpty():
             eliminar = titulos.search(titulo.Titulo.descadastrar())
+            # quando um ítem não é encontrado a função search retorna 'nil'
+            # para não apagar a folha é feita a verificação abaixo
             if eliminar is not titulos.nil:
                 titulos.delete(eliminar)
                 quantidade_cadastrada -= 1
             else:
                 print('Titulo nao encontrado!')
         else:
-            print('esta vazia!')
+            print('Árvore vazia!')
     elif opcao == 3:
         os.system('clear')
         try:
@@ -48,6 +65,7 @@ while True:
             with open(arquivo) as lista:
                 for i in lista.readlines():
                     titulos.insert(titulo.Titulo(i[0:8], i[8:11], i[11:-1]))
+                    # ultimo slice vai até -1 para evitar o '\n'
                     quantidade_cadastrada += 1
             print('\n')
         except Exception as exc:
@@ -60,10 +78,7 @@ while True:
         os.system('clear')
         break
 
-candidatos = {}
-numeros = []
-
-
+# CADASTRAMENTO DE CANDIDATOS
 while True:
     opcao = int(input("1 - Cadastrar canditado" + '\n' +
                       "2 - Deletar canditado" + '\n' +
@@ -77,19 +92,20 @@ while True:
         nome = input('Nome: ')
         candidatos[numero] = [nome, 0]
         numeros.append(numero)
-    elif opcao == 2:
+    elif opcao == 2:  # Deletar candidato
         os.system('clear')
         numero = int(input('Digite o número a ser apagado: '))
         del candidatos[numero]
-    elif opcao == 3:
+    elif opcao == 3:  # listar candidatos
         os.system('clear')
         for i in candidatos:
             print(i, '-', candidatos[i][0])
         print('\n')
-    elif opcao == 4:
+    elif opcao == 4:  # encerrar o loop
         os.system('clear')
         break
 
+# VOTAÇÃO
 while True:
     opcao = int(input("\nVotos registrados: %d" % votos_registrados + '\n'
                       "1 - nova votação" + '\n' +
@@ -104,7 +120,7 @@ while True:
         votos = redblacktree.Tree()
         print('Árvore de Votação zerada')
         time.sleep(3)
-    elif opcao == 2:  # votar
+    elif opcao == 2:  # Adiciona um voto
         os.system('clear')
         entrada = input('Título de eleitor: ')
         eleitor = titulos.search(entrada)
@@ -119,11 +135,13 @@ while True:
                 print('Título Inválido!')
         else:
             print('Título não encontrado!')
-    elif opcao == 3:  # simulação
+    elif opcao == 3:  # Gerar votos aleatórios(para encher a árvore de votação)
         os.system('clear')
         while not titulos.isEmpty():
             titulo = titulos.minimum(titulos.getRoot())
             if valida.valida(titulo) and (votos.search(titulo.getData()) is votos.nil):
+                # verifica que o título é válido e que
+                # não consta na árvore de votação (se search retorna votos.nil)
                 titulos.delete(titulo)
                 votos.insert(titulo.getData().getNumero())
                 voto = (random.choice(numeros))
@@ -131,11 +149,11 @@ while True:
                 votos_registrados += 1
             else:
                 titulos.delete(titulo)
-    elif opcao == 4:
+    elif opcao == 4:  # Apresentar o resultado parcial da eleição
         os.system('clear')
         for i in candidatos:
             print(i, '-', candidatos[i][0], ': ', candidatos[i][1])
-    elif opcao == 5:
+    elif opcao == 5:  # Destrói todas as estruturas e encerra o programa.
         os.system('clear')
         titulos = redblacktree.Tree()
         votos = redblacktree.Tree()

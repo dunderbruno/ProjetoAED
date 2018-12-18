@@ -1,8 +1,9 @@
 """
 Red-Black Tree.
 
-Autores: Bruno Santos
-         Jonathas Silva
+Baseado no pseudocódigo do livro INTRODUCTION TO ALGORITHMS, 3ed.
+e em anotações de aula da disciplina Algorítmos e Estruturas de Dados
+do Professor Tiago A. E. Ferreira - BSI - UFRPE
 """
 
 
@@ -77,7 +78,10 @@ class Tree():
 
 
     def __init__(self):
-        """Construtor da arvore."""
+        """
+        A árvore é iniciada com o nó 'nil',
+        para onde todas as folhas irão apontar
+        """
         self.nil = Node(None)
         self.nil.setColor('black')
         self.nil.setParent(self.nil)
@@ -148,15 +152,7 @@ class Tree():
             print(x.getData(), end = " ")
 
     def search(self, k):
-        """Busca e retorna o no.
-
-        Na função original (k is not x.getData())
-        O is not foi substituído por != a fim de
-        suportar a comparação com k que é uma Strings
-
-        Obs: relacionado com métodos mágicos de comparação
-             da classe Título
-        """
+        """Busca e retorna o no."""
         x = self.getRoot()
         while (x is not self.nil) and (k != x.getData()):
             if k < x.getData():
@@ -166,7 +162,7 @@ class Tree():
         return x
 
     def leftRotate(self, x):
-        """Rotaçao simples a esquerda."""
+        """Rotaçao simples à esquerda."""
         y = x.getRight()
         x.setRight(y.getLeft())
         if y.getLeft() is not self.nil:
@@ -182,7 +178,7 @@ class Tree():
         x.setParent(y)
 
     def rightRotate(self, x):
-        """Rotaçao simples a direita."""
+        """Rotaçao simples à direita."""
         y = x.getLeft()
         x.setLeft(y.getRight())
         if x.getRight() is not self.nil:
@@ -198,7 +194,7 @@ class Tree():
         x.setParent(y)
 
     def insert(self, z):
-        """Insere um novo no."""
+        """Recebe uma entrada e a insere na árvore."""
         x = self.getRoot()
         y = self.nil
         z = Node(z)

@@ -1,4 +1,18 @@
+u"""Validação de Título de Eleitor."""
+
+
 def valida(no):
+    u"""
+    Recebe um objeto Node e verifica se contém um título válido.
+
+    Formato esperado:
+    XXXXXXXXYYYZZZZ
+
+    Se todos os caracteres são numéricos e tem o tamanho certo:
+        retorna verdadeiro.
+    Se não:
+        retorna falso
+    """
     titulo = no.getData()
     ins = False
     sec = False
