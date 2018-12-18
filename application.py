@@ -120,12 +120,14 @@ while True:
         os.system('clear')
         while not titulos.isEmpty():
             titulo = titulos.minimum(titulos.getRoot())
-            titulos.delete(titulo)
-            votos.insert(titulo.getData().getNumero())
-            voto = (random.choice(numeros))
-            candidatos[voto][1] += 1
-            votos_registrados += 1
-
+            if valida.valida(titulo):
+                titulos.delete(titulo)
+                votos.insert(titulo.getData().getNumero())
+                voto = (random.choice(numeros))
+                candidatos[voto][1] += 1
+                votos_registrados += 1
+            else:
+                titulos.delete(titulo)
     elif opcao == 4:
         os.system('clear')
         for i in candidatos:
