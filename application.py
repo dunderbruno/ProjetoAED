@@ -33,7 +33,7 @@ numeros = []     # guarda o número dos candidatos para usar em random.choice()
 # CADASTRAMENTO DE TÍTULOS DE ELEITOR
 os.system('clear')
 while True:
-    opcao = int(input("Títulos Cadastrados: %d" % quantidade_cadastrada + '\n'
+    opcao = int(input("Títulos Cadastrados: %d" % quantidade_cadastrada+'\n\n' +
                       "1 - Cadastrar título" + '\n' +
                       "2 - Descadastrar título" + '\n' +
                       "3 - Carregar de um arquivo" + '\n' +
@@ -118,8 +118,11 @@ while True:
     if opcao == 1:
         os.system('clear')
         votos = redblacktree.Tree()
-        print('Árvore de Votação zerada')
-        time.sleep(3)
+        votos_registrados = 0
+        for i in candidatos:
+            candidatos[i][1] = 0
+        print('Árvore de Votação zerada.')
+        time.sleep(1)
     elif opcao == 2:  # Adiciona um voto
         os.system('clear')
         entrada = input('Título de eleitor: ')
