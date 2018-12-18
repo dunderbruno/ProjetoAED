@@ -108,7 +108,6 @@ while True:
         entrada = input('Título de eleitor: ')
         eleitor = titulos.search(entrada)
         if eleitor is not titulos.nil:
-            # if valida.valida(eleitor) and (votos.search(entrada) is votos.nil):
             if valida.valida(eleitor):
                 voto = int(input('Voto: '))
                 titulos.delete(eleitor)
