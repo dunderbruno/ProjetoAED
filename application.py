@@ -23,7 +23,7 @@ while True:
                       "2 - Descadastrar título" + '\n' +
                       "3 - Carregar de um arquivo" + '\n' +
                       "4 - Exibir títulos cadastrados" + '\n' + '\n'
-                      "5 - Finaliza cadastro" + '\n' + '\n'
+                      "5 - Finaliza cadastro de títulos" + '\n' + '\n'
                       "Escolha: "))
 
     if opcao == 1:
@@ -65,11 +65,10 @@ numeros = []
 
 
 while True:
-    opcao = int(input("Votos registrados: %d" % votos_registrados + '\n'
-                      "1 - Cadastrar canditado" + '\n' +
+    opcao = int(input("1 - Cadastrar canditado" + '\n' +
                       "2 - Deletar canditado" + '\n' +
                       "3 - Listar candidatos" + '\n' +
-                      "4 - sair" + '\n' + '\n' +
+                      "4 - Finalizar cadastro de candidatos" + '\n' + '\n' +
                       "Escolha: "))
 
     if opcao == 1:  # cadastrar canditado
@@ -86,12 +85,13 @@ while True:
         os.system('clear')
         for i in candidatos:
             print(i, '-', candidatos[i][0])
+        print('\n')
     elif opcao == 4:
         os.system('clear')
         break
 
 while True:
-    opcao = int(input("Votos registrados: %d" % votos_registrados + '\n'
+    opcao = int(input("\nVotos registrados: %d" % votos_registrados + '\n'
                       "1 - nova votação" + '\n' +
                       "2 - adicionar voto" + '\n' +
                       "3 - gerar votos aleatórios" + '\n' +
