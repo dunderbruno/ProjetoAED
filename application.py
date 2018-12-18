@@ -108,11 +108,11 @@ while True:
 # VOTAÇÃO
 while True:
     opcao = int(input("\nVotos registrados: %d" % votos_registrados + '\n'
-                      "1 - nova votação" + '\n' +
-                      "2 - adicionar voto" + '\n' +
-                      "3 - gerar votos aleatórios" + '\n' +
-                      "4 - apresentar resultado parcial" + '\n' +
-                      "5 - sair" + '\n' + '\n' +
+                      "1 - Nova votação" + '\n' +
+                      "2 - Adicionar voto" + '\n' +
+                      "3 - Gerar votos aleatórios" + '\n' +
+                      "4 - Apresentar resultado parcial" + '\n' +
+                      "5 - Sair" + '\n' + '\n' +
                       "Escolha: "))
 
     if opcao == 1:
