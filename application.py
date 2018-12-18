@@ -15,6 +15,7 @@ quantidade_cadastrada = 0
 # ÁRVORE DE VOTOS
 votos = redblacktree.Tree()
 votos_registrados = 0
+
 os.system('clear')
 while True:
     opcao = int(input("Títulos Cadastrados: %d" % quantidade_cadastrada + '\n'
