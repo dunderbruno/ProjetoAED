@@ -7,7 +7,7 @@ do Professor Tiago A. E. Ferreira - BSI - UFRPE
 """
 
 
-class Node():
+class Node:
     u"""Unidade básica para funcionamento da Árvore Binária."""
 
     def __init__(self, data):
@@ -75,7 +75,6 @@ class Node():
 
 class Tree():
     u"""Árvore Vermelho e Preto."""
-
 
     def __init__(self):
         """
