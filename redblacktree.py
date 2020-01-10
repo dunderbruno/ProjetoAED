@@ -28,27 +28,27 @@ class Node:
         self.__left   = None
         self.__right  = None
 
-    def getColor(self):
+    def get_color(self):
         """Retorna chave de acesso."""
         return self.__color
 
-    def getData(self):
+    def get_data(self):
         u"""Retorna conteúdo armazenado."""
         return self.__data
 
-    def getLeft(self):
+    def get_left(self):
         """Retorna filho esquerdo."""
         return self.__left
 
-    def getRight(self):
+    def get_right(self):
         """Retorna filho direito."""
         return self.__right
 
-    def getParent(self):
+    def get_parent(self):
         u"""Retorna nó pai."""
         return self.__parent
 
-    def setColor(self, color):
+    def set_color(self, color):
         """
         Define chave de acesso.
         ex:
@@ -56,19 +56,19 @@ class Node:
         """
         self.__color = color
 
-    def setData(self, data):
+    def set_data(self, data):
         u"""Define conteúdo armazenado."""
         self.__data = data
 
-    def setLeft(self, left):
+    def set_left(self, left):
         """Define filho esquerdo."""
         self.__left = left
 
-    def setRight(self, right):
+    def set_right(self, right):
         """Define filho direito."""
         self.__right = right
 
-    def setParent(self, parent):
+    def set_parent(self, parent):
         u"""Define nó pai."""
         self.__parent = parent
 
@@ -82,10 +82,10 @@ class Tree():
         para onde todas as folhas irão apontar
         """
         self.nil = Node(None)
-        self.nil.setColor('black')
-        self.nil.setParent(self.nil)
-        self.nil.setLeft(self.nil)
-        self.nil.setRight(self.nil)
+        self.nil.set_color('black')
+        self.nil.set_parent(self.nil)
+        self.nil.set_left(self.nil)
+        self.nil.set_right(self.nil)
         self.__root = self.nil
 
     def setRoot(self, root):
@@ -106,55 +106,55 @@ class Tree():
     def minimum(self, node):
         """Retorna o minino daquele no."""
         if node is not self.nil:
-            while node.getLeft() is not self.nil:
-                node = node.getLeft()
+            while node.get_left() is not self.nil:
+                node = node.get_left()
             return node
 
     def maximum(self, node):
         """Retorna o maximo daquel no."""
         if node is not self.nil:
-            while node.getRight() is not self.nil:
-                node = node.getRight()
+            while node.get_right() is not self.nil:
+                node = node.get_right()
             return node
 
     def successor(self, x):
         """Retorna o sucessor."""
         if x is not self.nil:
-            if x.getRight() is not self.nil:
-                return self.minimum(x.getRight())
+            if x.get_right() is not self.nil:
+                return self.minimum(x.get_right())
             else:
-                father = x.getParent()
-                while (father is not self.nil) and (x is father.getRight()):
+                father = x.get_parent()
+                while (father is not self.nil) and (x is father.get_right()):
                     x = father
-                    father = x.getParent()
+                    father = x.get_parent()
                     return father
 
     def preOrderTreeWalk(self, x):
         """Plota arvore em preOrdem."""
         if x is not self.nil:
-            print(x.getData(), end = " ")
-            self.preOrderTreeWalk(x.getLeft())
-            self.preOrderTreeWalk(x.getRight())
+            print(x.get_data(), end =" ")
+            self.preOrderTreeWalk(x.get_left())
+            self.preOrderTreeWalk(x.get_right())
 
     def inOrderTreeWalk(self, x):
         """Plota arvore em ordem."""
         if x is not self.nil:
-            self.inOrderTreeWalk(x.getLeft())
-            print(x.getData(), end = "\n")
-            self.inOrderTreeWalk(x.getRight())
+            self.inOrderTreeWalk(x.get_left())
+            print(x.get_data(), end ="\n")
+            self.inOrderTreeWalk(x.get_right())
 
     def postOrderTreeWalk(self, x):
         """Plota arvore em posOrdem."""
         if x is not self.nil:
-            self.postOrderTreeWalk(x.getLeft())
-            self.postOrderTreeWalk(x.getRight())
-            print(x.getData(), end = " ")
+            self.postOrderTreeWalk(x.get_left())
+            self.postOrderTreeWalk(x.get_right())
+            print(x.get_data(), end =" ")
 
     def search(self, k):
         """Busca e retorna o no."""
         x = self.getRoot()
-        while (x is not self.nil) and (k != x.getData()):
-            if k < x.getData():
+        while (x is not self.nil) and (k != x.get_data()):
+            if k < x.get_data():
                 x = x.getLeft()
             else:
                 x = x.getRight()
@@ -162,35 +162,35 @@ class Tree():
 
     def leftRotate(self, x):
         """Rotaçao simples à esquerda."""
-        y = x.getRight()
-        x.setRight(y.getLeft())
-        if y.getLeft() is not self.nil:
-            y.getLeft().setParent(x)
-        y.setParent(x.getParent())
-        if x.getParent() is self.nil:
+        y = x.get_right()
+        x.set_right(y.get_left())
+        if y.get_left() is not self.nil:
+            y.get_left().set_parent(x)
+        y.set_parent(x.get_parent())
+        if x.get_parent() is self.nil:
             self.setRoot(y)
-        elif x is x.getParent().getLeft():
-            x.getParent().setLeft(y)
+        elif x is x.get_parent().get_left():
+            x.get_parent().set_left(y)
         else:
-            x.getParent().setRight(y)
-        y.setLeft(x)
-        x.setParent(y)
+            x.get_parent().set_right(y)
+        y.set_left(x)
+        x.set_parent(y)
 
     def rightRotate(self, x):
         """Rotaçao simples à direita."""
-        y = x.getLeft()
-        x.setLeft(y.getRight())
-        if x.getRight() is not self.nil:
-            y.getRight().setParent(x)
-        y.setParent(x.getParent())
-        if x.getParent() is self.nil:
+        y = x.get_left()
+        x.set_left(y.get_right())
+        if x.get_right() is not self.nil:
+            y.get_right().set_parent(x)
+        y.set_parent(x.get_parent())
+        if x.get_parent() is self.nil:
             self.setRoot(y)
-        elif x is x.getParent().getRight():
-            x.getParent().setRight(y)
+        elif x is x.get_parent().get_right():
+            x.get_parent().set_right(y)
         else:
-            x.getParent().setLeft(y)
-        y.setRight(x)
-        x.setParent(y)
+            x.get_parent().set_left(y)
+        y.set_right(x)
+        x.set_parent(y)
 
     def insert(self, z):
         """Recebe uma entrada e a insere na árvore."""
@@ -199,131 +199,131 @@ class Tree():
         z = Node(z)
         while x is not self.nil:
             y = x
-            if (z.getData() < x.getData()):
+            if (z.get_data() < x.get_data()):
                 x = x.getLeft()
             else:
                 x = x.getRight()
-        z.setParent(y)
+        z.set_parent(y)
         if y is self.nil:
             self.setRoot(z)
-        elif z.getData() < y.getData():
-            y.setLeft(z)
+        elif z.get_data() < y.get_data():
+            y.set_left(z)
         else:
-            y.setRight(z)
-        z.setLeft(self.nil)
-        z.setRight(self.nil)
-        z.setColor('red')
+            y.set_right(z)
+        z.set_left(self.nil)
+        z.set_right(self.nil)
+        z.set_color('red')
         self.insertFixUp(z)
 
     def insertFixUp(self, z):
         while z.getParent().getColor() == 'red':
-            if z.getParent() is z.getParent().getParent().getLeft():
-                y = z.getParent().getParent().getRight()
+            if z.getParent() is z.getParent().get_parent().get_left():
+                y = z.getParent().get_parent().get_right()
                 if y.getColor() == 'red':
-                    z.getParent().setColor('black')
-                    y.setColor('black')
-                    z.getParent().getParent().setColor('red')
-                    z = z.getParent().getParent()
+                    z.getParent().set_color('black')
+                    y.set_color('black')
+                    z.getParent().get_parent().set_color('red')
+                    z = z.getParent().get_parent()
                 else:
-                    if z == z.getParent().getRight():
+                    if z == z.getParent().get_right():
                         z = z.getParent()
                         self.leftRotate(z)
-                    z.getParent().setColor('black')
-                    z.getParent().getParent().setColor('red')
-                    self.rightRotate(z.getParent().getParent())
+                    z.getParent().set_color('black')
+                    z.getParent().get_parent().set_color('red')
+                    self.rightRotate(z.getParent().get_parent())
             else:
-                y = z.getParent().getParent().getLeft()
+                y = z.getParent().get_parent().get_left()
                 if y.getColor() == 'red':
-                    z.getParent().setColor('black')
-                    y.setColor('black')
-                    z.getParent().getParent().setColor('red')
-                    z = z.getParent().getParent()
+                    z.getParent().set_color('black')
+                    y.set_color('black')
+                    z.getParent().get_parent().set_color('red')
+                    z = z.getParent().get_parent()
                 else:
-                    if z == z.getParent().getLeft():
+                    if z == z.getParent().get_left():
                         z = z.getParent()
                         self.rightRotate(z)
-                    z.getParent().setColor('black')
-                    z.getParent().getParent().setColor('red')
-                    self.leftRotate(z.getParent().getParent())
-        self.getRoot().setColor('black')
+                    z.getParent().set_color('black')
+                    z.getParent().get_parent().set_color('red')
+                    self.leftRotate(z.getParent().get_parent())
+        self.getRoot().set_color('black')
 
     def transplant(self, u, v):
-        if u.getParent() is self.nil:
+        if u.get_parent() is self.nil:
             self.setRoot(v)
-        elif u is u.getParent().getLeft():
-            u.getParent().setLeft(v)
+        elif u is u.get_parent().get_left():
+            u.get_parent().set_left(v)
         else:
-            u.getParent().setRight(v)
-        v.setParent(u.getParent())
+            u.get_parent().set_right(v)
+        v.set_parent(u.get_parent())
 
     def delete(self, z):
         y = z
         y_original_color = y.getColor()
-        if z.getLeft() is self.nil:
-            x = z.getRight()
-            self.transplant(z, z.getRight())
-        elif z.getRight() is self.nil:
-            x = z.getLeft()
-            self.transplant(z, z.getLeft())
+        if z.get_left() is self.nil:
+            x = z.get_right()
+            self.transplant(z, z.get_right())
+        elif z.get_right() is self.nil:
+            x = z.get_left()
+            self.transplant(z, z.get_left())
         else:
-            y = self.minimum(z.getRight())
+            y = self.minimum(z.get_right())
             y_original_color = y.getColor()
-            x = y.getRight()
-            if y.getParent() is z:
-                x.setParent(y)
+            x = y.get_right()
+            if y.get_parent() is z:
+                x.set_parent(y)
             else:
-                self.transplant(y, y.getRight())
-                y.setRight(z.getRight())
-                y.getRight().setParent(y)
+                self.transplant(y, y.get_right())
+                y.set_right(z.get_right())
+                y.get_right().set_parent(y)
             self.transplant(z, y)
-            y.setLeft(z.getLeft())
-            y.getLeft().setParent(y)
-            y.setColor(z.getColor())
+            y.set_left(z.get_left())
+            y.get_left().set_parent(y)
+            y.set_color(z.getColor())
         if y_original_color == 'black':
             self.deleteFixUp(x)
 
     def deleteFixUp(self, x):
         while x is not self.getRoot() and x.getColor() == 'black':
-            if x is x.getParent().getLeft():
-                w = x.getParent().getRight()
+            if x is x.getParent().get_left():
+                w = x.get_parent().get_right()
                 if w.getColor() == 'red':
-                    w.setColor('black')
-                    x.getParent().setColor('red')
-                    self.leftRotate(x.getParent())
-                    w = x.getParent().getRight()
-                if w.getLeft().getColor() == 'black' and w.getRight().getColor() == 'black':
-                    w.setColor('red')
-                    x = x.getParent()
+                    w.set_color('black')
+                    x.get_parent().set_color('red')
+                    self.leftRotate(x.get_parent())
+                    w = x.get_parent().get_right()
+                if w.get_left().getColor() == 'black' and w.get_right().getColor() == 'black':
+                    w.set_color('red')
+                    x = x.get_parent()
                 else:
-                    if w.getRight().getColor() == 'black':
-                        w.getLeft().setColor('black')
-                        w.setColor('red')
+                    if w.get_right().getColor() == 'black':
+                        w.get_left().set_color('black')
+                        w.set_color('red')
                         self.rightRotate(w)
-                        w = x.getParent().getRight()
-                    w.setColor(x.getParent().getColor())
-                    x.getParent().setColor('black')
-                    w.getRight().setColor('black')
-                    self.leftRotate(x.getParent())
+                        w = x.get_parent().get_right()
+                    w.set_color(x.get_parent().getColor())
+                    x.get_parent().set_color('black')
+                    w.get_right().set_color('black')
+                    self.leftRotate(x.get_parent())
                     x = self.getRoot()
             else:
-                w = x.getParent().getLeft()
+                w = x.get_parent().get_left()
                 if w.getColor() == 'red':
-                    w.setColor('black')
-                    x.getParent().setColor('red')
-                    self.rightRotate(x.getParent())
-                    w = x.getParent().getRight()
-                if w.getRight().getColor() == 'black' and w.getLeft().getColor() == 'black':
-                    w.setColor('red')
-                    x = x.getParent()
+                    w.set_color('black')
+                    x.get_parent().set_color('red')
+                    self.rightRotate(x.get_parent())
+                    w = x.get_parent().get_right()
+                if w.get_right().getColor() == 'black' and w.get_left().getColor() == 'black':
+                    w.set_color('red')
+                    x = x.get_parent()
                 else:
-                    if w.getLeft().getColor() == 'black':
-                        w.getRight().setColor('black')
-                        w.setColor('red')
+                    if w.get_left().getColor() == 'black':
+                        w.get_right().set_color('black')
+                        w.set_color('red')
                         self.leftRotate(w)
-                        w = x.getParent().getLeft()
-                    w.setColor(x.getParent().getColor())
-                    x.getParent().setColor('black')
-                    w.getLeft().setColor('black')
-                    self.rightRotate(x.getParent())
+                        w = x.get_parent().get_left()
+                    w.set_color(x.get_parent().getColor())
+                    x.get_parent().set_color('black')
+                    w.get_left().set_color('black')
+                    self.rightRotate(x.get_parent())
                     x = self.getRoot()
-        x.setColor('black')
+        x.set_color('black')

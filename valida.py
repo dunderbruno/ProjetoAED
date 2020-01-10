@@ -13,7 +13,7 @@ def valida(no):
     Se não:
         retorna falso
     """
-    titulo = no.getData()
+    titulo = no.get_data()
     ins = False
     sec = False
     zon = False

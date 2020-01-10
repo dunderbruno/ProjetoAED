@@ -131,7 +131,7 @@ while True:
             if valida.valida(eleitor) and (votos.search(entrada) is votos.nil):
                 voto = int(input('Voto: '))
                 titulos.delete(eleitor)
-                votos.insert(eleitor.getData().getNumero())
+                votos.insert(eleitor.get_data().getNumero())
                 candidatos[voto][1] += 1
                 votos_registrados += 1
             else:
@@ -142,11 +142,11 @@ while True:
         os.system('clear')
         while not titulos.isEmpty():
             titulo = titulos.minimum(titulos.getRoot())
-            if valida.valida(titulo) and (votos.search(titulo.getData()) is votos.nil):
+            if valida.valida(titulo) and (votos.search(titulo.get_data()) is votos.nil):
                 # verifica que o título é válido e que
                 # não consta na árvore de votação (se search retorna votos.nil)
                 titulos.delete(titulo)
-                votos.insert(titulo.getData().getNumero())
+                votos.insert(titulo.get_data().getNumero())
                 voto = (random.choice(numeros))
                 candidatos[voto][1] += 1
                 votos_registrados += 1
