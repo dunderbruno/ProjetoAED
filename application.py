@@ -47,7 +47,7 @@ while True:
         quantidade_cadastrada += 1
     elif opcao == 2:
         os.system('clear')
-        if not titulos.isEmpty():
+        if not titulos.is_empty():
             eliminar = titulos.search(titulo.Titulo.descadastrar())
             # quando um ítem não é encontrado a função search retorna 'nil'
             # para não apagar a folha é feita a verificação abaixo
@@ -72,7 +72,7 @@ while True:
             print('\nArquivo não encontrado!\n')
     elif opcao == 4:
         os.system('clear')
-        titulos.inOrderTreeWalk(titulos.getRoot())
+        titulos.in_order_tree_walk(titulos.get_root())
         print('\n')
     elif opcao == 5:
         os.system('clear')
@@ -140,8 +140,8 @@ while True:
             print('Título não encontrado!')
     elif opcao == 3:  # Gerar votos aleatórios(para encher a árvore de votação)
         os.system('clear')
-        while not titulos.isEmpty():
-            titulo = titulos.minimum(titulos.getRoot())
+        while not titulos.is_empty():
+            titulo = titulos.minimum(titulos.get_root())
             if valida.valida(titulo) and (votos.search(titulo.get_data()) is votos.nil):
                 # verifica que o título é válido e que
                 # não consta na árvore de votação (se search retorna votos.nil)
