@@ -33,13 +33,13 @@ numeros = []     # guarda o número dos candidatos para usar em random.choice()
 # CADASTRAMENTO DE TÍTULOS DE ELEITOR
 os.system('clear')
 while True:
-    opcao = int(input("Títulos Cadastrados: %d" % quantidade_cadastrada+'\n\n' +
-                      "1 - Cadastrar título" + '\n' +
-                      "2 - Descadastrar título" + '\n' +
-                      "3 - Carregar de um arquivo" + '\n' +
-                      "4 - Exibir títulos cadastrados" + '\n' + '\n'
-                      "5 - Finaliza cadastro de títulos" + '\n' + '\n'
-                      "Escolha: "))
+    opcao = int(input(f"Títulos Cadastrados: {quantidade_cadastrada}\n\
+1 - Cadastrar título\n\
+2 - Descadastrar título\n\
+3 - Carregar de um arquivo\n\
+4 - Exibir títulos cadastrados\n\
+5 - Finaliza cadastro de títulos\n\n\
+Escolha: "))
 
     if opcao == 1:
         os.system('clear')
@@ -80,11 +80,11 @@ while True:
 
 # CADASTRAMENTO DE CANDIDATOS
 while True:
-    opcao = int(input("1 - Cadastrar canditado" + '\n' +
-                      "2 - Deletar canditado" + '\n' +
-                      "3 - Listar candidatos" + '\n' +
-                      "4 - Finalizar cadastro de candidatos" + '\n' + '\n' +
-                      "Escolha: "))
+    opcao = int(input(f"1 - Cadastrar canditado\n\
+2 - Deletar canditado\n\
+3 - Listar candidatos\n\
+4 - Finalizar cadastro de candidatos\n\n\
+Escolha: "))
 
     if opcao == 1:  # cadastrar canditado
         os.system('clear')
