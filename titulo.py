@@ -34,10 +34,6 @@ class Titulo():
         """Maior que."""
         return self.__numero > other
 
-    def descadastrar(self):
-        """Le uma string para repassar pra alicacao principal."""
-        return input('Descadastrar Título: ')
-
     def getInscricao(self):
         return self.__inscricao
 
