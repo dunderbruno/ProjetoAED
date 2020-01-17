@@ -12,12 +12,13 @@ ainda não votou.
 """
 
 import redblacktree
-import titulo
+from titulo import Titulo
 import valida
 import os
 import time
 import sys
 import random
+
 
 # ÁRVORE DE TÍTULOS
 titulos = redblacktree.Tree()
@@ -43,8 +44,10 @@ Escolha: "))
 
     if opcao == 1:
         os.system('clear')
-        titulos.insert(titulo.Titulo.cadastrar())
+        numero = input('Cadastrar Título: ')
+        titulos.insert(Titulo(numero))
         quantidade_cadastrada += 1
+
     elif opcao == 2:
         os.system('clear')
         if not titulos.is_empty():

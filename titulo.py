@@ -4,21 +4,11 @@
 class Titulo():
     """Classe Titulo."""
 
-    def __init__(self, inscricao, zona, secao):
-        u"""
-        O objeto Titulo é iniciado com 3 argumentos.
-
-        Argumentos:
-            - inscricao: string com 8 caracteres numéricos
-            - zona:      string com 3 caracteres numéricos
-            - secao:     string com 4 caracteres numéricos
-        Atributos:
-            - numero:    string que concatena os demais atributos
-        """
-        self.__inscricao = str(inscricao)
-        self.__zona = str(zona)
-        self.__secao = str(secao)
-        self.__numero = self.__inscricao + self.__zona + self.__secao
+    def __init__(self, numero):
+        self.__inscricao = str(numero[0:8])
+        self.__zona = str(numero[8:11])
+        self.__secao = str(numero[11:])
+        self.__numero = str(numero)
 
     def __repr__(self):
         u"""O objeto é exibido no formato: XXXXXXXXYYYZZZZ."""
@@ -43,11 +33,6 @@ class Titulo():
     def __gt__(self, other):
         """Maior que."""
         return self.__numero > other
-
-    def cadastrar(self):
-        """Recebe uma String e retorna um objeto Titulo."""
-        numero = input('Cadastrar Título: ')
-        return Titulo(numero[0:8], numero[8:11], numero[11:])
 
     def descadastrar(self):
         """Le uma string para repassar pra alicacao principal."""
