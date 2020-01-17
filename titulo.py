@@ -20,7 +20,7 @@ class Titulo():
 
         'XXXXXXXX-YYY-ZZZZ'
         """
-        return self.__inscricao + '-' + self.__zona + '-' + self.__secao
+        return f"{self.__inscricao}-{self.__zona}-{self.__secao}"
 
     def __lt__(self, other):
         """Menor que."""
