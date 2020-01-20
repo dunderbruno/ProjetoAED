@@ -61,6 +61,7 @@ Escolha: "))
                 titulos.delete(eliminar)
             else:
                 print('Titulo nao encontrado!')
+
     elif opcao == 3:
         os.system('clear')
         try:
@@ -73,10 +74,12 @@ Escolha: "))
             print('\n')
         except Exception as exc:
             print('\nArquivo não encontrado!\n')
+
     elif opcao == 4:
         os.system('clear')
         titulos.in_order_tree_walk(titulos.get_root())
         print('\n')
+
     elif opcao == 5:
         os.system('clear')
         break
@@ -102,7 +105,7 @@ Escolha: "))
     elif opcao == 3:  # listar candidatos
         os.system('clear')
         for i in candidatos:
-            print(i, '-', candidatos[i][0])
+            print(f"{i}-{candidatos[i][0]}")
         print('\n')
     elif opcao == 4:  # encerrar o loop
         os.system('clear')
@@ -110,13 +113,13 @@ Escolha: "))
 
 # VOTAÇÃO
 while True:
-    opcao = int(input("\nVotos registrados: %d" % votos_registrados + '\n'
-                      "1 - Nova votação" + '\n' +
-                      "2 - Adicionar voto" + '\n' +
-                      "3 - Gerar votos aleatórios" + '\n' +
-                      "4 - Apresentar resultado parcial" + '\n' +
-                      "5 - Sair" + '\n' + '\n' +
-                      "Escolha: "))
+    opcao = int(input(f"\nVotos registrados: {votos_registrados}\n\
+1 - Nova votação\n\
+2 - Adicionar voto\n\
+3 - Gerar votos aleatórios\n\
+4 - Apresentar resultado parcial\n\
+5 - Sair\n\n\
+Escolha: "))
 
     if opcao == 1:
         os.system('clear')
@@ -126,6 +129,7 @@ while True:
             candidatos[i][1] = 0
         print('Árvore de Votação zerada.')
         time.sleep(1)
+
     elif opcao == 2:  # Adiciona um voto
         os.system('clear')
         entrada = input('Título de eleitor: ')
@@ -141,6 +145,7 @@ while True:
                 print('Título Inválido!')
         else:
             print('Título não encontrado!')
+
     elif opcao == 3:  # Gerar votos aleatórios(para encher a árvore de votação)
         os.system('clear')
         while not titulos.is_empty():
@@ -155,10 +160,12 @@ while True:
                 votos_registrados += 1
             else:
                 titulos.delete(titulo)
+
     elif opcao == 4:  # Apresentar o resultado parcial da eleição
         os.system('clear')
         for i in candidatos:
-            print(i, '-', candidatos[i][0], ': ', candidatos[i][1])
+            print(f"{i} - {candidatos[i][0]} : {candidatos[i][1]}")
+
     elif opcao == 5:  # Destrói todas as estruturas e encerra o programa.
         os.system('clear')
         titulos = redblacktree.Tree()
