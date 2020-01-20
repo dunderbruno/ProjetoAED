@@ -216,35 +216,35 @@ class Tree:
         self.insert_fix_up(z)
 
     def insert_fix_up(self, z):
-        while z.getParent().getColor() == 'red':
-            if z.getParent() is z.getParent().get_parent().get_left():
-                y = z.getParent().get_parent().get_right()
-                if y.getColor() == 'red':
-                    z.getParent().set_color('black')
+        while z.get_parent().get_color() == 'red':
+            if z.get_parent() is z.get_parent().get_parent().get_left():
+                y = z.get_parent().get_parent().get_right()
+                if y.get_color() == 'red':
+                    z.get_parent().set_color('black')
                     y.set_color('black')
-                    z.getParent().get_parent().set_color('red')
-                    z = z.getParent().get_parent()
+                    z.get_parent().get_parent().set_color('red')
+                    z = z.get_parent().get_parent()
                 else:
-                    if z == z.getParent().get_right():
-                        z = z.getParent()
+                    if z == z.get_parent().get_right():
+                        z = z.get_parent()
                         self.left_rotate(z)
-                    z.getParent().set_color('black')
-                    z.getParent().get_parent().set_color('red')
-                    self.right_rotate(z.getParent().get_parent())
+                    z.get_parent().set_color('black')
+                    z.get_parent().get_parent().set_color('red')
+                    self.right_rotate(z.get_parent().get_parent())
             else:
-                y = z.getParent().get_parent().get_left()
-                if y.getColor() == 'red':
-                    z.getParent().set_color('black')
+                y = z.get_parent().get_parent().get_left()
+                if y.get_color() == 'red':
+                    z.get_parent().set_color('black')
                     y.set_color('black')
-                    z.getParent().get_parent().set_color('red')
-                    z = z.getParent().get_parent()
+                    z.get_parent().get_parent().set_color('red')
+                    z = z.get_parent().get_parent()
                 else:
-                    if z == z.getParent().get_left():
-                        z = z.getParent()
+                    if z == z.get_parent().get_left():
+                        z = z.get_parent()
                         self.right_rotate(z)
-                    z.getParent().set_color('black')
-                    z.getParent().get_parent().set_color('red')
-                    self.left_rotate(z.getParent().get_parent())
+                    z.get_parent().set_color('black')
+                    z.get_parent().get_parent().set_color('red')
+                    self.left_rotate(z.get_parent().get_parent())
         self.get_root().set_color('black')
 
     def transplant(self, u, v):
@@ -258,7 +258,7 @@ class Tree:
 
     def delete(self, z):
         y = z
-        y_original_color = y.getColor()
+        y_original_color = y.get_color()
         if z.get_left() is self.nil:
             x = z.get_right()
             self.transplant(z, z.get_right())
@@ -267,7 +267,7 @@ class Tree:
             self.transplant(z, z.get_left())
         else:
             y = self.minimum(z.get_right())
-            y_original_color = y.getColor()
+            y_original_color = y.get_color()
             x = y.get_right()
             if y.get_parent() is z:
                 x.set_parent(y)
@@ -278,50 +278,50 @@ class Tree:
             self.transplant(z, y)
             y.set_left(z.get_left())
             y.get_left().set_parent(y)
-            y.set_color(z.getColor())
+            y.set_color(z.get_color())
         if y_original_color == 'black':
             self.delete_fix_up(x)
 
     def delete_fix_up(self, x):
-        while x is not self.get_root() and x.getColor() == 'black':
-            if x is x.getParent().get_left():
+        while x is not self.get_root() and x.get_color() == 'black':
+            if x is x.get_parent().get_left():
                 w = x.get_parent().get_right()
-                if w.getColor() == 'red':
+                if w.get_color() == 'red':
                     w.set_color('black')
                     x.get_parent().set_color('red')
                     self.left_rotate(x.get_parent())
                     w = x.get_parent().get_right()
-                if w.get_left().getColor() == 'black' and w.get_right().getColor() == 'black':
+                if w.get_left().get_color() == 'black' and w.get_right().get_color() == 'black':
                     w.set_color('red')
                     x = x.get_parent()
                 else:
-                    if w.get_right().getColor() == 'black':
+                    if w.get_right().get_color() == 'black':
                         w.get_left().set_color('black')
                         w.set_color('red')
                         self.right_rotate(w)
                         w = x.get_parent().get_right()
-                    w.set_color(x.get_parent().getColor())
+                    w.set_color(x.get_parent().get_color())
                     x.get_parent().set_color('black')
                     w.get_right().set_color('black')
                     self.left_rotate(x.get_parent())
                     x = self.get_root()
             else:
                 w = x.get_parent().get_left()
-                if w.getColor() == 'red':
+                if w.get_color() == 'red':
                     w.set_color('black')
                     x.get_parent().set_color('red')
                     self.right_rotate(x.get_parent())
                     w = x.get_parent().get_right()
-                if w.get_right().getColor() == 'black' and w.get_left().getColor() == 'black':
+                if w.get_right().get_color() == 'black' and w.get_left().get_color() == 'black':
                     w.set_color('red')
                     x = x.get_parent()
                 else:
-                    if w.get_left().getColor() == 'black':
+                    if w.get_left().get_color() == 'black':
                         w.get_right().set_color('black')
                         w.set_color('red')
                         self.left_rotate(w)
                         w = x.get_parent().get_left()
-                    w.set_color(x.get_parent().getColor())
+                    w.set_color(x.get_parent().get_color())
                     x.get_parent().set_color('black')
                     w.get_left().set_color('black')
                     self.right_rotate(x.get_parent())
