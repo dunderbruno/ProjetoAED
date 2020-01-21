@@ -59,6 +59,7 @@ Escolha: "))
             # para não apagar a folha é feita a verificação abaixo
             if eliminar is not titulos.nil:
                 titulos.delete(eliminar)
+                quantidade_cadastrada -= 1
             else:
                 print('Titulo nao encontrado!')
 
