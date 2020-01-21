@@ -155,9 +155,9 @@ class Tree:
         x = self.get_root()
         while (x is not self.nil) and (k != x.get_data()):
             if k < x.get_data():
-                x = x.getLeft()
+                x = x.get_left()
             else:
-                x = x.getRight()
+                x = x.get_right()
         return x
 
     def left_rotate(self, x):
@@ -200,9 +200,9 @@ class Tree:
         while x is not self.nil:
             y = x
             if (z.get_data() < x.get_data()):
-                x = x.getLeft()
+                x = x.get_left()
             else:
-                x = x.getRight()
+                x = x.get_right()
         z.set_parent(y)
         if y is self.nil:
             self.set_root(z)
