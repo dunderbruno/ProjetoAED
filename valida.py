@@ -17,11 +17,11 @@ def valida(no):
     ins = False
     sec = False
     zon = False
-    if len(titulo.getInscricao()) == 8 and titulo.getInscricao().isnumeric():
+    if len(titulo.get_inscricao()) == 8 and titulo.get_inscricao().isnumeric():
         ins = True
-    if len(titulo.getZona()) == 3 and titulo.getZona().isnumeric():
+    if len(titulo.get_zona()) == 3 and titulo.get_zona().isnumeric():
         zon = True
-    if len(titulo.getSecao()) == 4 and titulo.getSecao().isnumeric():
+    if len(titulo.get_secao()) == 4 and titulo.get_secao().isnumeric():
         sec = True
 
     if ins and zon and sec:

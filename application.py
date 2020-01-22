@@ -139,7 +139,7 @@ Escolha: "))
             if valida.valida(eleitor) and (votos.search(entrada) is votos.nil):
                 voto = int(input('Voto: '))
                 titulos.delete(eleitor)
-                votos.insert(eleitor.get_data().getNumero())
+                votos.insert(eleitor.get_data().get_numero())
                 candidatos[voto][1] += 1
                 votos_registrados += 1
             else:
@@ -155,7 +155,7 @@ Escolha: "))
                 # verifica que o título é válido e que
                 # não consta na árvore de votação (se search retorna votos.nil)
                 titulos.delete(titulo)
-                votos.insert(titulo.get_data().getNumero())
+                votos.insert(titulo.get_data().get_numero())
                 voto = (random.choice(numeros))
                 candidatos[voto][1] += 1
                 votos_registrados += 1

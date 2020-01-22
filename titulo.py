@@ -34,23 +34,23 @@ class Titulo():
         """Maior que."""
         return self.__numero > other
 
-    def getInscricao(self):
+    def get_inscricao(self):
         return self.__inscricao
 
-    def setInscricao(self, inscricao):
+    def set_inscricao(self, inscricao):
         self.__inscricao = inscricao
 
-    def getZona(self):
+    def get_zona(self):
         return self.__zona
 
-    def setZona(self, zona):
+    def set_zona(self, zona):
         self.__zona = zona
 
-    def getSecao(self):
+    def get_secao(self):
         return self.__secao
 
-    def setSecao(self, secao):
+    def set_secao(self, secao):
         self.__secao = secao
 
-    def getNumero(self):
+    def get_numero(self):
         return self.__numero
